@@ -17,8 +17,7 @@ export default function Home() {
           >
             By{" "}
             <Image
-              // need to add github repo slug at image url
-              src="/retz8.github.io/vercel.svg"
+              src="/vercel.svg"
               alt="Vercel Logo"
               className="dark:invert"
               width={100}
