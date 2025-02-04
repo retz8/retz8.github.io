@@ -1,101 +1,160 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
+
+const sections = [
+  { id: "about", label: "ABOUT" },
+  { id: "experience", label: "EXPERIENCE" },
+  { id: "projects", label: "PROJECTS" },
+];
+
+export default function Page() {
+  const [activeSection, setActiveSection] = useState("about");
+  const observerRefs = useRef([]);
+
+  useEffect(() => {
+    observerRefs.current.forEach((observer) => observer.disconnect());
+    observerRefs.current = [];
+
+    sections.forEach(({ id }) => {
+      const element = document.getElementById(id);
+      if (!element) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(id);
+            }
+          });
+        },
+        {
+          rootMargin: "0px 0px 100% 0px", // focus on the top of the element
+        }
+      );
+
+      observer.observe(element);
+      observerRefs.current.push(observer);
+    });
+
+    return () => {
+      observerRefs.current.forEach((observer) => observer.disconnect());
+    };
+  }, []);
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="flex min-h-screen">
+      {/* Left Navigation */}
+      <nav
+        className="sticky top-0 w-1/2 h-screen p-8
+      flex flex-col justify-center"
+      >
+        <div className="mb-12">
+          <h1 className="text-4xl font-bold">Portfolio</h1>
+          <p className="mt-2 text-muted-foreground">Front End Engineer</p>
+        </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="space-y-8">
+          {sections.map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className={cn(
+                "relative pl-8 text-left text-sm font-medium transition-colors duration-300",
+                activeSection === id
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              )}
+            >
+              <div
+                className={cn(
+                  "absolute left-0 top-1/2 h-[2px] w-4 -translate-y-1/2 bg-current transition-all duration-300",
+                  activeSection === id ? "w-6" : "w-4"
+                )}
+              />
+              {label}
+            </button>
+          ))}
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <main className="w-1/2 overflow-y-auto">
+        <div className="py-16 space-y-16 pr-8">
+          <section id="about" className="flex items-center">
+            <div>
+              <h2 className="text-2xl font-semibold">About</h2>
+              <p className="mt-4 text-muted-foreground">
+                I build accessible, pixel-perfect digital experiences for the
+                web.
+              </p>
+            </div>
+          </section>
+
+          <section id="experience" className="flex items-center">
+            <div>
+              <h2 className="text-2xl font-semibold">Experience</h2>
+              <div className="mt-8 space-y-12">
+                <ExperienceCard
+                  date="2024 — PRESENT"
+                  title="Senior Frontend Engineer"
+                  company="Company A"
+                  description="Build and maintain critical components used to construct the frontend across the whole product."
+                  tags={["JavaScript", "TypeScript", "React", "Next.js"]}
+                />
+                <ExperienceCard
+                  date="2018 — 2024"
+                  title="Lead Engineer"
+                  company="Company B"
+                  description="Build, style, and ship high-quality websites and digital experiences."
+                  tags={["React", "TypeScript", "Node.js", "PHP"]}
+                />
+              </div>
+            </div>
+          </section>
+
+          <section id="projects" className="flex items-center">
+            <div>
+              <h2 className="text-2xl font-semibold">Projects</h2>
+              <p className="mt-4 text-muted-foreground">
+                A collection of projects I've worked on.
+              </p>
+            </div>
+          </section>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    </div>
+  );
+}
+
+function ExperienceCard({ date, title, company, description, tags }) {
+  return (
+    <div className="space-y-4">
+      <div className="text-sm text-muted-foreground">{date}</div>
+      <div>
+        <h3 className="text-xl font-medium">
+          {title} · {company}
+        </h3>
+        <p className="mt-2 text-muted-foreground">{description}</p>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <span
+            key={tag}
+            className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
