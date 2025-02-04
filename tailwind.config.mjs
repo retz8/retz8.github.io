@@ -10,6 +10,10 @@ const config = {
   theme: {
     extend: {
       colors: {
+        "michigan-blue": "#00274C",
+        "michigan-light-blue": "#003594",
+        "michigan-maize": "#FFCB05",
+        "michigan-dark-maize": "#e5b604",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
