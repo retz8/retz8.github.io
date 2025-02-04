@@ -2,17 +2,22 @@
 
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import NameCard from "@/components/NameCard";
+import SocialLinks from "@/components/SocialLinks";
+import AboutMe from "@/components/AboutMe";
 
 const sections = [
   { id: "about", label: "ABOUT" },
-  { id: "experience", label: "EXPERIENCE" },
   { id: "projects", label: "PROJECTS" },
+  { id: "experience", label: "EXPERIENCE" },
 ];
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState("about");
   const observerRefs = useRef([]);
+  const mainContentRef = useRef(null);
 
+  // observer for the active section
   useEffect(() => {
     observerRefs.current.forEach((observer) => observer.disconnect());
     observerRefs.current = [];
@@ -30,7 +35,7 @@ export default function Page() {
           });
         },
         {
-          rootMargin: "0px 0px 100% 0px", // focus on the top of the element
+          rootMargin: "0px 0px -100% 0px", // focus on the top of the element
         }
       );
 
@@ -45,56 +50,75 @@ export default function Page() {
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (element && mainContentRef.current) {
+      const yOffset = -16; // Adjust this value to fine-tune the scroll position
+      const y =
+        element.getBoundingClientRect().top +
+        mainContentRef.current.scrollTop +
+        yOffset;
+
+      mainContentRef.current.scrollTo({ top: y, behavior: "smooth" });
     }
   };
 
   return (
     <div className="flex min-h-screen">
       {/* Left Navigation */}
-      <nav
-        className="sticky top-0 w-1/2 h-screen p-8
-      flex flex-col justify-center"
+      <div
+        className="sticky top-0 w-1/2 h-screen py-20
+      flex flex-col justify-between"
       >
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold">Portfolio</h1>
-          <p className="mt-2 text-muted-foreground">Front End Engineer</p>
+        <div className="flex flex-col gap-16">
+          <NameCard />
+
+          <nav className="flex flex-col space-y-6">
+            {sections.map(({ id, label }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={cn(
+                  "group relative pl-10 text-left text-sm font-medium transition-all duration-150",
+                  activeSection === id
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                <div
+                  className={cn(
+                    "absolute left-0 top-1/2 h-[2px] -translate-y-1/2 bg-current transition-all duration-150",
+                    activeSection === id ? "w-8" : "w-4 group-hover:w-8"
+                  )}
+                />
+                <span
+                  className={cn(
+                    "inline-block transition-all duration-150",
+                    activeSection === id
+                      ? "translate-x-0"
+                      : "translate-x-0 group-hover:translate-x-4"
+                  )}
+                >
+                  {label}
+                </span>
+              </button>
+            ))}
+          </nav>
         </div>
 
-        <div className="space-y-8">
-          {sections.map(({ id, label }) => (
-            <button
-              key={id}
-              onClick={() => scrollToSection(id)}
-              className={cn(
-                "relative pl-8 text-left text-sm font-medium transition-colors duration-300",
-                activeSection === id
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground"
-              )}
-            >
-              <div
-                className={cn(
-                  "absolute left-0 top-1/2 h-[2px] w-4 -translate-y-1/2 bg-current transition-all duration-300",
-                  activeSection === id ? "w-6" : "w-4"
-                )}
-              />
-              {label}
-            </button>
-          ))}
-        </div>
-      </nav>
+        <SocialLinks />
+      </div>
 
       {/* Main Content */}
-      <main className="w-1/2 overflow-y-auto">
-        <div className="py-16 space-y-16 pr-8">
+      <main ref={mainContentRef} className="w-1/2 overflow-y-auto">
+        <div className="space-y-16 py-20">
           <section id="about" className="flex items-center">
+            <AboutMe />
+          </section>
+
+          <section id="projects" className="flex items-center">
             <div>
-              <h2 className="text-2xl font-semibold">About</h2>
+              <h2 className="text-2xl font-semibold">Projects</h2>
               <p className="mt-4 text-muted-foreground">
-                I build accessible, pixel-perfect digital experiences for the
-                web.
+                A collection of projects I&apos;ve worked on.
               </p>
             </div>
           </section>
@@ -118,15 +142,6 @@ export default function Page() {
                   tags={["React", "TypeScript", "Node.js", "PHP"]}
                 />
               </div>
-            </div>
-          </section>
-
-          <section id="projects" className="flex items-center">
-            <div>
-              <h2 className="text-2xl font-semibold">Projects</h2>
-              <p className="mt-4 text-muted-foreground">
-                A collection of projects I&apos;ve worked on.
-              </p>
             </div>
           </section>
         </div>

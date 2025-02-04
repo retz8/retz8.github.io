@@ -1,15 +1,21 @@
-import { Geist, Azeret_Mono as Geist_Mono } from "next/font/google";
+import {
+  Geist,
+  Azeret_Mono as Geist_Mono,
+  Poppins,
+  Montserrat,
+} from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
 });
 
@@ -20,11 +26,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable}`}
-    >
+    <html lang="en" suppressHydrationWarning className={`${poppins.variable}`}>
       <body className="relative min-h-screen bg-background">
         <ThemeProvider
           attribute="class"
@@ -32,9 +34,7 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-            {children}
-          </div>
+          <div className="max-w-screen-lg mx-auto">{children}</div>
         </ThemeProvider>
       </body>
     </html>
