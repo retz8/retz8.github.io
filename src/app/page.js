@@ -125,7 +125,7 @@ export default function Page() {
             <div>
               <h2 className="text-2xl font-semibold">Projects</h2>
               <p className="mt-4 text-muted-foreground">
-                A collection of projects I've worked on.
+                A collection of projects I&apos;ve worked on.
               </p>
             </div>
           </section>
