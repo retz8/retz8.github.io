@@ -114,7 +114,7 @@ export default function Page() {
             <AboutMe />
           </section>
 
-          <section id="projects" className="flex items-center">
+          <section id="projects" className="flex h-[600px]">
             <div>
               <h2 className="text-2xl font-semibold">Projects</h2>
               <p className="mt-4 text-muted-foreground">
