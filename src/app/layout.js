@@ -27,14 +27,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${poppins.variable}`}>
-      <body className="relative min-h-screen bg-background">
+      <body
+        className="relative min-h-screen
+      bg-gradient-to-b from-[#0a1729] via-[#0c1b31] to-[#080f1d]"
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="max-w-screen-lg mx-auto">{children}</div>
+          <div className="max-w-screen-lg mx-auto ">{children}</div>
         </ThemeProvider>
       </body>
     </html>

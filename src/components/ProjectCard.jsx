@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { AiFillGithub } from "react-icons/ai";
-import { Card, CardBody, CardHeader } from "@heroui/card";
-// import { Image } from "@heroui/image";
-import Image from "next/image";
+import { Card, CardBody, CardHeader, CardFooter } from "@heroui/card";
+import { Image } from "@heroui/image";
 import { Badge } from "@/components/ui/badge";
+import { LuExternalLink } from "react-icons/lu";
 
 export function ProjectCard({
   title,
@@ -11,48 +11,63 @@ export function ProjectCard({
   imageUrl,
   slug,
   techStack,
-  githubUrl,
-  isMobile = false,
+  githubUrls,
+  websiteUrl,
 }) {
   return (
-    <Link href={`/projects/${slug}`} className="block group">
-      <Card
-        isBlurred
-        // className="border-none bg-background/60 dark:bg-default-100/50 max-w-[610px]"
-        className="bg-pink-200 w-full"
-        shadow="sm"
-      >
-        <CardBody>
-          <div className="grid grid-cols-6 md:grid-cols-12 gap-6 md:gap-4 items-center justify-center">
-            <div className="relative col-span-6 md:col-span-4">
-              <img
-                src="/retz8.github.io/projects/umickisa.png"
-                alt="UMich KISA"
-                className="w-full h-full object-cover"
-              />
-            </div>
+    <Card
+      className="flex flex-col gap-4
+       p-4 group w-full
+      transition-all duration-300 rounded-lg border-none
+       hover:border-gray-500 hover:bg-gray-500/20"
+    >
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="md:w-1/3">
+          <Image
+            removeWrapper
+            alt={title}
+            className="z-0 w-full aspect-video object-fit"
+            src={imageUrl}
+          />
+        </div>
 
-            <div className="flex flex-col col-span-6 md:col-span-8">
-              <div className="flex flex-col gap-0">
-                <h3 className="text-2xl font-bold">{title}</h3>
-                <p className="text-sm text-muted-foreground">{description}</p>
-              </div>
-            </div>
+        <div className="flex-1 flex flex-col gap-2 ">
+          <Link href={`/projects/${slug}`}>
+            <span className="leading-none">{title}</span>{" "}
+          </Link>
 
-            <div className="flex flex-row gap-2">
-              {techStack.map((tech) => (
-                <Badge
-                  key={tech}
-                  variant="secondary"
-                  className="bg-zinc-800 text-zinc-400 hover:bg-zinc-800"
-                >
-                  {tech}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        </CardBody>
-      </Card>
-    </Link>
+          <p className="text-sm text-muted-foreground">{description}</p>
+        </div>
+      </div>
+      <div className="flex flex-row items-center gap-4">
+        {/* links */}
+        <div className="w-1/3 flex flex-row gap-2">
+          {githubUrls &&
+            githubUrls.map((url) => (
+              <Link
+                key={url}
+                href={url}
+                target="_blank"
+                className="hover:text-muted-foreground"
+              >
+                <AiFillGithub className="text-xl text-muted-foreground hover:text-foreground" />
+              </Link>
+            ))}
+          {websiteUrl && (
+            <Link href={websiteUrl} target="_blank">
+              <LuExternalLink className="text-xl text-muted-foreground hover:text-foreground" />
+            </Link>
+          )}
+        </div>
+        {/* Tech Stack */}
+        <ul className="flex-1 flex flex-wrap gap-2">
+          {techStack.map((tech) => (
+            <Badge key={tech} variant="secondary" className="font-semibold">
+              {tech}
+            </Badge>
+          ))}
+        </ul>
+      </div>
+    </Card>
   );
 }

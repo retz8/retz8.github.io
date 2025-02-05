@@ -4,11 +4,11 @@ import { ProjectCard } from "./ProjectCard";
 
 export default function ProjectsList() {
   return (
-    <div className="flex flex-col gap-4">
-      <h2 className="text-2xl font-semibold">Projects</h2>
+    <div className="flex flex-col gap-3">
+      <h2 className="pl-4 text-xl font-semibold">Projects</h2>
       <ul className="flex flex-col gap-4">
         {projects.map((project) => (
-          <ProjectCard key={project.slug} {...project} />
+          <ProjectCard key={project.id} {...project} />
         ))}
       </ul>
     </div>

@@ -6,7 +6,8 @@ import NameCard from "@/components/NameCard";
 import SocialLinks from "@/components/SocialLinks";
 import AboutMe from "@/components/AboutMe";
 import ProjectsList from "@/components/ProjectsList";
-
+import ExperiencesList from "@/components/ExperiencesList";
+import Link from "next/link";
 const sections = [
   { id: "about", label: "ABOUT" },
   { id: "projects", label: "PROJECTS" },
@@ -36,7 +37,7 @@ export default function Page() {
           });
         },
         {
-          rootMargin: "0px 0px -100% 0px", // focus on the top of the element
+          rootMargin: "0px 0px -80% 0px", // focus on the top of the element
         }
       );
 
@@ -51,37 +52,39 @@ export default function Page() {
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
-    if (element && mainContentRef.current) {
-      const yOffset = -16; // Adjust this value to fine-tune the scroll position
-      const y =
-        element.getBoundingClientRect().top +
-        mainContentRef.current.scrollTop +
-        yOffset;
+    if (element) {
+      const yOffset = 75; // 원하는 오프셋 값 (px)
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - yOffset;
 
-      mainContentRef.current.scrollTo({ top: y, behavior: "smooth" });
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex flex-col md:flex-row min-h-screen ">
       {/* Left Navigation */}
       <div
-        className="sticky top-0 w-1/2 h-screen py-20
-      flex flex-col justify-between"
+        className="md:fixed md:top-0 w-full md:w-1/3 md:h-screen 
+        py-10 md:py-20
+      flex flex-row md:flex-col px-8 md:px-0 justify-between"
       >
         <div className="flex flex-col gap-16">
           <NameCard />
 
-          <nav className="flex flex-col space-y-6">
+          <nav className="hidden md:flex flex-col space-y-6">
             {sections.map(({ id, label }) => (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
                 className={cn(
-                  "group relative pl-10 text-left text-sm font-medium transition-all duration-150",
+                  "group relative text-left text-sm font-medium transition-all duration-150",
                   activeSection === id
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "text-primary pl-12"
+                    : "text-muted-foreground hover:text-foreground pl-8"
                 )}
               >
                 <div
@@ -105,67 +108,41 @@ export default function Page() {
           </nav>
         </div>
 
-        <SocialLinks />
+        <div className="flex flex-col gap-4">
+          <SocialLinks />
+          <span className="hidden md:block text-xs text-muted-foreground/50">
+            Inspired by{" "}
+            <Link
+              href="https://brittanychiang.com/"
+              target="_blank"
+              className="hover:text-muted-foreground"
+            >
+              Brittany Chiang
+            </Link>
+          </span>
+        </div>
       </div>
 
       {/* Main Content */}
-      <main ref={mainContentRef} className="w-1/2 overflow-y-auto">
-        <div className="space-y-16 py-20">
+      <main
+        ref={mainContentRef}
+        className="w-full md:ml-[33%]
+        md:w-2/3 overflow-y-auto px-8 md:px-10"
+      >
+        <div className="space-y-16 py-5 md:py-20">
           <section id="about" className="flex items-center">
             <AboutMe />
           </section>
 
-          <section id="projects" className="flex ">
+          <section id="projects" className="">
             <ProjectsList />
           </section>
 
-          <section id="experience" className="flex items-center">
-            <div>
-              <h2 className="text-2xl font-semibold">Experience</h2>
-              <div className="mt-8 space-y-12">
-                <ExperienceCard
-                  date="2024 — PRESENT"
-                  title="Senior Frontend Engineer"
-                  company="Company A"
-                  description="Build and maintain critical components used to construct the frontend across the whole product."
-                  tags={["JavaScript", "TypeScript", "React", "Next.js"]}
-                />
-                <ExperienceCard
-                  date="2018 — 2024"
-                  title="Lead Engineer"
-                  company="Company B"
-                  description="Build, style, and ship high-quality websites and digital experiences."
-                  tags={["React", "TypeScript", "Node.js", "PHP"]}
-                />
-              </div>
-            </div>
+          <section id="experience" className="">
+            <ExperiencesList />
           </section>
         </div>
       </main>
-    </div>
-  );
-}
-
-function ExperienceCard({ date, title, company, description, tags }) {
-  return (
-    <div className="space-y-4">
-      <div className="text-sm text-muted-foreground">{date}</div>
-      <div>
-        <h3 className="text-xl font-medium">
-          {title} · {company}
-        </h3>
-        <p className="mt-2 text-muted-foreground">{description}</p>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
     </div>
   );
 }
