@@ -21,25 +21,17 @@ export default function AboutMe() {
         <span className="text-foreground hover:text-michigan-maize">
           University of Michigan
         </span>
-        , majoring in Computer Science. Currently, I am working as a Research
-        Assistant at{" "}
+        , majoring in Computer Science. Alongside my role as a{" "}
         <a
           href="https://umtri.umich.edu"
           target="_blank"
           className="text-foreground hover:text-michigan-maize"
         >
-          UMTRI
+          Research Assistant at UMTRI
         </a>
-        . At the same time, I'm a Lead Software Engineer at{" "}
-        {/* [TODO]: change instagram link to website's credit page */}
-        <a
-          href="https://www.instagram.com/kisa_michigan/"
-          target="_blank"
-          className="text-foreground hover:text-michigan-maize"
-        >
-          KISA
-        </a>
-        , building apps for Korean students.
+        , I serve as{" "}
+        <span className="text-foreground">Lead Software Engineer</span> for a
+        7-member team, building apps for Korean student community.
       </p>
       {/* 3. Spare Time: 요리 + 축구 */}
       <p>

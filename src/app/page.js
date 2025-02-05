@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import NameCard from "@/components/NameCard";
 import SocialLinks from "@/components/SocialLinks";
 import AboutMe from "@/components/AboutMe";
+import ProjectsList from "@/components/ProjectsList";
 
 const sections = [
   { id: "about", label: "ABOUT" },
@@ -114,13 +115,8 @@ export default function Page() {
             <AboutMe />
           </section>
 
-          <section id="projects" className="flex h-[600px]">
-            <div>
-              <h2 className="text-2xl font-semibold">Projects</h2>
-              <p className="mt-4 text-muted-foreground">
-                A collection of projects I&apos;ve worked on.
-              </p>
-            </div>
+          <section id="projects" className="flex ">
+            <ProjectsList />
           </section>
 
           <section id="experience" className="flex items-center">

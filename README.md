@@ -3,7 +3,7 @@
 ## Tech Stacks
 
 - Next.js
-- Shadcn UI
+- Shadcn UI + HeroUI
 - Tailwind CSS
 
 ## Setup & Usage
