@@ -1,8 +1,6 @@
-import AboutMe from "@/components/AboutMe";
-import ProjectsList from "@/components/ProjectsList";
-import ExperiencesList from "@/components/ExperiencesList";
+import React from "react";
 
-export default function Page() {
+export default function AboutMainContent() {
   return (
     <div className="space-y-16 py-5 md:py-20">
       <section id="about" className="flex items-center">
