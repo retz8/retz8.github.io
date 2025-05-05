@@ -1,18 +1,30 @@
-# Jioh's Portfolio
+# Portfolio Website
 
-## Tech Stacks
+Built with Svelte, TailwindCSS, and Strapi.
 
-- Next.js
-- Shadcn UI + HeroUI
-- Tailwind CSS
+## Creating a project
 
-## Setup & Usage
+If you're seeing this, you've probably already done this step. Congrats!
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
-pnpm install
-pnpm run dev
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-### Notes
+## Building
 
-https://github.com/gregrickaby/nextjs-github-pages
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
