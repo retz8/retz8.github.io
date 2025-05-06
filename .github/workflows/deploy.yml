@@ -30,6 +30,7 @@ jobs:
         with:
           node-version: "lts/*"
           cache: npm
+          cache-dependency-path: ./client/package-lock.json
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
