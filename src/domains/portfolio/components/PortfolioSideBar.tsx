@@ -1,61 +1,64 @@
-import { useState, useEffect, useRef } from "react";
+// import { useState, useEffect, useRef } from "react";
 import NameCard from "@/components/NameCard";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 
 export default function PortfolioSideBar() {
-  const [activeSection, setActiveSection] = useState("about");
+  //   const [activeSection, setActiveSection] = useState<string>("about");
 
-  const observerRefs = useRef([]);
+  //   const observerRefs = useRef([]);
 
-  const sections = [
-    { id: "about", label: "ABOUT" },
-    { id: "projects", label: "PROJECTS" },
-    { id: "experience", label: "EXPERIENCE" },
-  ];
+  //   const sections = [
+  //     { id: "about", label: "ABOUT" },
+  //     { id: "projects", label: "PROJECTS" },
+  //     { id: "experience", label: "EXPERIENCE" },
+  //   ];
 
   // observer for the active section
-  useEffect(() => {
-    observerRefs.current.forEach((observer) => observer.disconnect());
-    observerRefs.current = [];
+  //   useEffect(() => {
+  //     // @ts-ignore
+  //     observerRefs.current.forEach((observer) => observer.disconnect());
+  //     observerRefs.current = [];
 
-    sections.forEach(({ id }) => {
-      const element = document.getElementById(id);
-      if (!element) return;
+  //     sections.forEach(({ id }) => {
+  //       const element = document.getElementById(id);
+  //       if (!element) return;
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setActiveSection(id);
-            }
-          });
-        },
-        {
-          rootMargin: "0px 0px -80% 0px", // focus on the top of the element
-        }
-      );
+  //       const observer = new IntersectionObserver(
+  //         (entries) => {
+  //           entries.forEach((entry) => {
+  //             if (entry.isIntersecting) {
+  //               setActiveSection(id);
+  //             }
+  //           });
+  //         },
+  //         {
+  //           rootMargin: "0px 0px -80% 0px", // focus on the top of the element
+  //         }
+  //       );
 
-      observer.observe(element);
-      observerRefs.current.push(observer);
-    });
+  //       observer.observe(element);
+  //       // @ts-ignore
+  //       observerRefs.current.push(observer);
+  //     });
 
-    return () => {
-      observerRefs.current.forEach((observer) => observer.disconnect());
-    };
-  }, []);
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const yOffset = 75; // 원하는 오프셋 값 (px)
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - yOffset;
+  //     return () => {
+  //       // @ts-ignore
+  //       observerRefs.current.forEach((observer) => observer.disconnect());
+  //     };
+  //   }, []);
+  //   const scrollToSection = (id: string) => {
+  //     const element = document.getElementById(id);
+  //     if (element) {
+  //       const yOffset = 75; // 원하는 오프셋 값 (px)
+  //       const elementPosition = element.getBoundingClientRect().top;
+  //       const offsetPosition = elementPosition + window.pageYOffset - yOffset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
+  //       window.scrollTo({
+  //         top: offsetPosition,
+  //         behavior: "smooth",
+  //       });
+  //     }
+  //   };
 
   return (
     <>
