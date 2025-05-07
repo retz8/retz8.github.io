@@ -1,7 +1,7 @@
 ---
-description: Any programming related to frontend, especially React, follow this design guideline rule
+description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 
 # Frontend Design Guideline

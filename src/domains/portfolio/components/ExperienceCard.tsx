@@ -1,6 +1,14 @@
-import React from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+
+interface ExperienceCardProps {
+  title: string;
+  company: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  techStack: string[];
+}
 export default function ExperienceCard({
   title,
   company,
@@ -8,7 +16,7 @@ export default function ExperienceCard({
   startDate,
   endDate,
   techStack,
-}) {
+}: ExperienceCardProps) {
   return (
     <Card
       className="flex flex-col gap-4
@@ -17,10 +25,10 @@ export default function ExperienceCard({
      hover:border-gray-500 hover:bg-gray-500/20"
     >
       <div className="space-y-1">
-        <h3 className=" text-zinc-100">
+        <h3 className=" text-foreground font-semibold">
           {title} • {company}
         </h3>
-        <p className="text-sm text-zinc-400">
+        <p className="text-sm text-muted-foreground">
           {startDate} - {endDate}
         </p>
       </div>

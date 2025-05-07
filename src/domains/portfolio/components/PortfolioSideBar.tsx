@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import NameCard from "@/components/NameCard";
 import { cn } from "@/lib/utils";
 
-export default function AboutSideBar() {
+export default function PortfolioSideBar() {
   const [activeSection, setActiveSection] = useState("about");
 
   const observerRefs = useRef([]);
@@ -64,7 +64,7 @@ export default function AboutSideBar() {
         subHeader="Software Engineer"
         description="Think and code elegantly"
       />
-      <nav className="hidden md:flex flex-col space-y-6">
+      {/* <nav className="hidden md:flex flex-col space-y-6">
         {sections.map(({ id, label }) => (
           <button
             key={id}
@@ -94,7 +94,7 @@ export default function AboutSideBar() {
             </span>
           </button>
         ))}
-      </nav>
+      </nav> */}
     </>
   );
 }
