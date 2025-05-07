@@ -19,7 +19,7 @@ export default function AboutMe() {
         <span className="font-semibold text-foreground hover:text-michigan-maize">
           University of Michigan
         </span>
-        , majoring in Computer Science. I'm a currently{" "}
+        , majoring in Computer Science. I'm currently a{" "}
         <span className="font-semibold text-foreground">
           Software Engineer Intern
         </span>{" "}
