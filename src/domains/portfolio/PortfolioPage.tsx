@@ -1,4 +1,4 @@
-// home page (a.k.a. portfolio page)
+// Portfolio page - 'portfolio' domain (/)
 
 import AboutMe from "@/domains/portfolio/components/AboutMe";
 import ExperiencesList from "@/domains/portfolio/components/ExperiencesList";
