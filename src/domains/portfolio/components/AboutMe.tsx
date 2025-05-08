@@ -1,7 +1,7 @@
 export default function AboutMe() {
   // 강조 문구는 text-foreground로
   return (
-    <div className="pl-4 flex flex-col gap-6 text-muted-foreground">
+    <div className="flex flex-col gap-6 text-muted-foreground">
       {/* 1. 개발자로써 내 철학 및 소개 */}
       <p>
         I'm a developer who values{" "}

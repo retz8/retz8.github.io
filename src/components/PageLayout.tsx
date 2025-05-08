@@ -11,7 +11,7 @@ interface PageLayoutProps {
 
 export default function PageLayout({ sidebar, children }: PageLayoutProps) {
   return (
-    <div className="max-w-screen-xl mx-auto px-10 md:px-20 flex flex-col md:flex-row min-h-screen">
+    <div className="max-w-screen-xl mx-auto md:px-24 flex flex-col md:flex-row min-h-screen pb-8">
       <AnimatePresence mode="wait">
         <motion.aside
           className="md:fixed md:top-0 w-full md:w-1/5 md:h-screen py-10 md:py-20 flex flex-row md:flex-col px-8 md:px-0 justify-between"

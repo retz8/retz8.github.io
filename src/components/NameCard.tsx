@@ -13,9 +13,7 @@ export default function NameCard({
     <div className="flex flex-col items-start gap-2">
       <h1 className="text-5xl font-bold">{header}</h1>
       <h2 className="text-xl font-semibold">{subHeader}</h2>
-      <p className="text-muted-foreground text-sm font-semibold">
-        {description}
-      </p>
+      <p className="text-muted-foreground text-sm font-normal">{description}</p>
     </div>
   );
 }

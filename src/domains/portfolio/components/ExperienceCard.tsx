@@ -4,7 +4,8 @@ import { ArrowUpRight } from "lucide-react";
 
 import type { Experience } from "@/domains/portfolio/types/experience";
 
-const renderCompanyText = (
+const renderJobTitleText = (
+  title: string,
   company: string,
   companyLink: string | undefined,
   companyTailwindColor: string | undefined
@@ -13,14 +14,20 @@ const renderCompanyText = (
     return (
       <a
         href={companyLink}
+        target="_blank"
         className={`flex items-center gap-1 ${companyTailwindColor}`}
       >
+        <span className="text-foreground font-semibold">{title} •</span>
         <span>{company}</span>
         <ArrowUpRight className="w-4 h-4" />
       </a>
     );
   } else {
-    return <span className={`${companyTailwindColor}`}>{company}</span>;
+    return (
+      <span className={`${companyTailwindColor}`}>
+        {title} • {company}
+      </span>
+    );
   }
 };
 
@@ -37,24 +44,28 @@ export default function ExperienceCard({
   return (
     <Card
       className="group flex flex-col gap-3
-     p-4 w-full bg-transparent hover:cursor-pointer
+     w-full bg-transparent hover:cursor-pointer
     transition-all duration-300 rounded-lg border-none shadow-none"
     >
       <div className="space-y-1">
-        <div
+        <h3
           className="text-foreground font-semibold 
-        flex items-center gap-1 w-full"
+        flex items-center gap-1"
         >
-          <h3>{title} • </h3>
-          {renderCompanyText(company, companyLink, companyTailwindColor)}
-        </div>
+          {renderJobTitleText(
+            title,
+            company,
+            companyLink,
+            companyTailwindColor
+          )}
+        </h3>
         <p className="text-sm text-muted-foreground">
           {startDate} - {endDate}
         </p>
       </div>
       <p
         className="text-sm text-muted-foreground 
-      group-hover:text-foreground group-hover:font-semibold"
+      group-hover:text-foreground"
       >
         {description}
       </p>

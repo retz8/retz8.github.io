@@ -106,7 +106,7 @@ export default function PortfolioSideBar() {
       </div>
 
       {/* Social links */}
-      <div className="flex flex-col items-start gap-2">
+      <div className="flex flex-col items-start gap-2 mt-4 md:mt-0">
         <SocialLinks />
         <a
           href="https://brittanychiang.com/"
