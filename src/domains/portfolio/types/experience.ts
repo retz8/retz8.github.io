@@ -5,6 +5,7 @@ export type Experience = {
   title: string;
   company: string;
   companyLink?: string;
+  companyTailwindColor?: string;
   description: string;
   startDate: string;
   endDate: string;

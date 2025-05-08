@@ -1,20 +1,26 @@
 // Portfolio page - 'portfolio' domain (/)
 
+import PageLayout from "@/components/PageLayout";
+
+import PortfolioSideBar from "@/domains/portfolio/components/PortfolioSideBar";
 import AboutMe from "@/domains/portfolio/components/AboutMe";
-import ExperiencesList from "@/domains/portfolio/components/ExperiencesList";
+import ExperiencesList from "@/domains/portfolio/components/ExperienceList";
+// import ProjectsList from "@/domains/portfolio/components/ProjectsList";
 
 export default function PortfolioPage() {
   return (
-    <div className="space-y-16 py-5 md:py-20 text-left">
-      <section id="about" className="flex items-center">
-        <AboutMe />
-      </section>
-      {/* <section id="projects">
-        <ProjectsList />
-      </section> */}
-      <section id="experience">
-        <ExperiencesList />
-      </section>
-    </div>
+    <PageLayout sidebar={<PortfolioSideBar />}>
+      <div className="space-y-16 py-5 md:py-20 text-left">
+        <section id="about" className="flex items-center">
+          <AboutMe />
+        </section>
+        <section id="experience">
+          <ExperiencesList />
+        </section>
+        {/* <section id="projects">
+          <ProjectsList />
+        </section> */}
+      </div>
+    </PageLayout>
   );
 }

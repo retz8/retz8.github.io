@@ -9,14 +9,13 @@ export default function AboutMe() {
         seeking better structures and more efficient dev environments. I believe
         that great technology emerges from collaboration, clear communication,
         and commitment to continuous improvement.
-        {/* I believe that great code is built
-        on solid architecture, and that streamlined development processes
-        ultimately lead to superior services for users. */}
       </p>
       {/* 2. 학교 소개 + 과거 경력 간단 요약 */}
       <p>
         I'm an undergrad student at{" "}
-        <span className="font-semibold text-foreground hover:text-michigan-maize">
+        <span
+          className={`font-semibold text-michigan-blue hover:text-michigan-dark-maize hover:cursor-pointer`}
+        >
           University of Michigan
         </span>
         , majoring in Computer Science. I'm currently a{" "}
@@ -27,7 +26,7 @@ export default function AboutMe() {
         <a
           href="https://www.tesla.com/"
           target="_blank"
-          className="text-foreground hover:text-[#CC0000] font-semibold"
+          className={`text-tesla-red hover:text-foreground font-semibold`}
         >
           Tesla
         </a>{" "}
@@ -36,7 +35,7 @@ export default function AboutMe() {
 
       {/* 3. Past Experiences */}
       <p>
-        In the Past, I worked as a{" "}
+        In the past, I worked as a{" "}
         <span className="font-semibold text-foreground">
           Research Assistant
         </span>{" "}
@@ -54,10 +53,10 @@ export default function AboutMe() {
       </p>
 
       {/* 3. Spare Time: 요리 + 축구 */}
-      <p>
+      {/* <p>
         When I'm not coding, I host and cook home-made tasting dinners, curating
         six to seven course meals.
-      </p>
+      </p> */}
     </div>
   );
 }
