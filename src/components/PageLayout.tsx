@@ -21,7 +21,7 @@ export default function PageLayout({
       className="relative max-w-screen-xl mx-auto md:px-24 
     flex flex-col min-h-screen pb-8 w-screen"
     >
-      {false && (
+      {true && (
         <div
           className="fixed max-w-screen-xl mx-auto w-full
        bg-background z-10 h-10 md:h-20 pr-[232px]

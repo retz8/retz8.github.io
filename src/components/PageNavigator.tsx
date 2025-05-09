@@ -3,17 +3,17 @@ import { Newspaper, Utensils, Home } from "lucide-react";
 
 const pageNavItems = [
   {
-    label: "Home",
+    label: "portfolio",
     icon: Home,
     to: "/",
   },
   {
-    label: "Blog",
+    label: "blog",
     icon: Newspaper,
     to: "/blog",
   },
   {
-    label: "Cook",
+    label: "cook",
     icon: Utensils,
     to: "/cook",
   },
@@ -35,11 +35,11 @@ export default function PageNavigator({ selectedPage }: PageNavigatorProps) {
           to={item.to}
           className={`flex flex-row items-center gap-2 ${
             selectedPage === item.to
-              ? "text-foreground underline"
+              ? "text-foreground font-semibold"
               : "text-muted-foreground"
           }`}
         >
-          <item.icon size={16} />
+          {/* <item.icon size={16} /> */}
           {item.label}
         </Link>
       ))}
