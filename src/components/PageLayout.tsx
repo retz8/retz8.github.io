@@ -24,7 +24,7 @@ export default function PageLayout({
       {false && (
         <div
           className="fixed max-w-screen-xl mx-auto w-full
-       bg-background z-10 h-10 md:h-20 pr-48 
+       bg-background z-10 h-10 md:h-20 pr-[232px]
        flex flex-row justify-end"
         >
           <PageNavigator selectedPage={selectedPage} />
@@ -51,7 +51,7 @@ export default function PageLayout({
             exit={{ opacity: 0 }} // Fade out
             transition={{ duration: 0.5 }} // Smooth fade
             className="w-full md:ml-[40%] md:w-3/5
-            overflow-y-auto pl-8 md:pl-10 flex flex-col items-end"
+            overflow-y-auto px-8 md:px-10 flex flex-col items-end"
           >
             {children}
           </motion.main>
