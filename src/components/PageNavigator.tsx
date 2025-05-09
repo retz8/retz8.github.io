@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
-import { Newspaper, Utensils, Home } from "lucide-react";
+import { Utensils, Home } from "lucide-react";
 
 const pageNavItems = [
   {
-    label: "portfolio",
+    label: "PORTFOLIO",
     icon: Home,
     to: "/",
   },
+  // {
+  //   label: "BLOG",
+  //   icon: Newspaper,
+  //   to: "/blog",
+  // },
   {
-    label: "blog",
-    icon: Newspaper,
-    to: "/blog",
-  },
-  {
-    label: "cook",
+    label: "COOK",
     icon: Utensils,
     to: "/cook",
   },
@@ -26,7 +26,7 @@ interface PageNavigatorProps {
 export default function PageNavigator({ selectedPage }: PageNavigatorProps) {
   return (
     <div
-      className="w-fit h-fit mt-6
+      className="w-fit h-fit mt-3 md:mt-6
     flex flex-row justify-end gap-8"
     >
       {pageNavItems.map((item) => (
@@ -35,7 +35,7 @@ export default function PageNavigator({ selectedPage }: PageNavigatorProps) {
           to={item.to}
           className={`flex flex-row items-center gap-2 ${
             selectedPage === item.to
-              ? "text-foreground font-semibold"
+              ? "text-foreground font-[500]"
               : "text-muted-foreground"
           }`}
         >

@@ -10,7 +10,7 @@ export default function NameCard({
   description,
 }: NameCardProps) {
   return (
-    <div className="flex flex-col items-start gap-2">
+    <div className="flex flex-col items-start gap-2 text-left">
       <h1 className="text-5xl font-bold">{header}</h1>
       {subHeader && <h2 className="text-xl font-semibold">{subHeader}</h2>}
       {description && (

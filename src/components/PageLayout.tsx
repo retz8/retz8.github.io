@@ -24,7 +24,7 @@ export default function PageLayout({
       {true && (
         <div
           className="fixed max-w-screen-xl mx-auto w-full
-       bg-background z-10 h-10 md:h-20 pr-[232px]
+       bg-background z-10 h-12 md:h-20 pr-8 md:pr-[232px]
        flex flex-row justify-end"
         >
           <PageNavigator selectedPage={selectedPage} />
@@ -34,7 +34,7 @@ export default function PageLayout({
         <AnimatePresence mode="wait">
           <motion.aside
             className="md:fixed md:top-0 w-full md:w-1/5 md:h-screen 
-          py-10 md:py-20
+          py-10 md:py-20 mt-10 md:mt-0
           flex flex-row md:flex-col px-8 md:px-0 justify-between"
             initial={{ opacity: 0, x: -25 }} // Start invisible and slightly left
             animate={{ opacity: 1, x: 0 }} // Fade in and slide to position

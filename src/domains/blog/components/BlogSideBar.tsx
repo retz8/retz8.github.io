@@ -5,7 +5,7 @@ export default function BlogSideBar() {
     <div className="flex flex-col justify-between h-full">
       <NameCard
         header="Jioh In"
-        subHeader="I write something"
+        // subHeader="Wri"
         // description="I write something"
       />
     </div>

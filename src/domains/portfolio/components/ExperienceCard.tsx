@@ -12,17 +12,17 @@ const renderJobTitleText = (
 ) => {
   if (companyLink) {
     return (
-      <a
-        href={companyLink}
-        target="_blank"
-        className={`flex items-center gap-1 text-foreground font-semibold`}
-      >
+      <span className={`flex items-center gap-1 text-foreground font-semibold`}>
         {title} •{" "}
-        <span className={`${companyTailwindColor} flex items-center`}>
+        <a
+          href={companyLink}
+          target="_blank"
+          className={`${companyTailwindColor} flex items-center`}
+        >
           {company}
-        </span>
+        </a>
         <ArrowUpRight className={`w-4 h-4 ${companyTailwindColor}`} />
-      </a>
+      </span>
     );
   } else {
     return (
