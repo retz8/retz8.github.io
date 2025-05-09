@@ -1,0 +1,11 @@
+<script type="text/javascript">
+  (function () {
+    // Get the current path
+    var path = window.location.pathname;
+
+    // If the path is not root, redirect to the same path but with an anchor
+    if (path !== "/" && !path.includes("index.html")) {
+      window.location.replace(window.location.origin + "/#" + path);
+    }
+  })();
+</script>
