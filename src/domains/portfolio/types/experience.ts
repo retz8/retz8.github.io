@@ -6,7 +6,8 @@ export type Experience = {
   company: string;
   companyLink?: string;
   companyTailwindColor?: string;
-  description: string;
+  location: string;
+  description: string | React.ReactNode;
   startDate: string;
   endDate: string;
   techStack: string[];

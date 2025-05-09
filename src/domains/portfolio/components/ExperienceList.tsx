@@ -1,4 +1,4 @@
-import { experiencesListData } from "@/domains/portfolio/data/experienceData";
+import { experiencesListData } from "@/domains/portfolio/data/experienceData.tsx";
 import ExperienceCard from "@/domains/portfolio/components/ExperienceCard";
 import Divider from "@/components/ui/divider";
 export default function ExperiencesList() {

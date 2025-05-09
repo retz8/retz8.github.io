@@ -15,17 +15,21 @@ const renderJobTitleText = (
       <a
         href={companyLink}
         target="_blank"
-        className={`flex items-center gap-1 ${companyTailwindColor}`}
+        className={`flex items-center gap-1 text-foreground font-semibold`}
       >
-        <span className="text-foreground font-semibold">{title} •</span>
-        <span>{company}</span>
-        <ArrowUpRight className="w-4 h-4" />
+        {title} •{" "}
+        <span className={`${companyTailwindColor} flex items-center`}>
+          {company}
+        </span>
+        <ArrowUpRight className={`w-4 h-4 ${companyTailwindColor}`} />
       </a>
     );
   } else {
     return (
-      <span className={`${companyTailwindColor}`}>
-        {title} • {company}
+      <span className="flex items-center">
+        <span className="text-foreground font-semibold">
+          {title} • <span className={`${companyTailwindColor}`}>{company}</span>
+        </span>
       </span>
     );
   }
@@ -36,6 +40,7 @@ export default function ExperienceCard({
   company,
   companyLink,
   companyTailwindColor,
+  location,
   description,
   startDate,
   endDate,
@@ -59,14 +64,19 @@ export default function ExperienceCard({
             companyTailwindColor
           )}
         </h3>
-        <p className="text-sm text-muted-foreground">
-          {startDate} - {endDate}
+        <p className="text-sm text-muted-foreground flex flex-row items-center gap-2 group-hover:text-foreground">
+          <span>
+            {startDate} - {endDate}
+          </span>
+          <span>|</span>
+          <span>{location}</span>
         </p>
       </div>
-      <p
-        className="text-sm text-muted-foreground 
-      group-hover:text-foreground"
-      >
+      {/* <div
+        className="text-sm text-muted-foreground group-hover:text-foreground"
+        dangerouslySetInnerHTML={{ __html: description }}
+      /> */}
+      <p className="text-sm text-muted-foreground group-hover:text-foreground">
         {description}
       </p>
       <ul className="flex flex-wrap gap-2 mt-1">

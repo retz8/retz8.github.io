@@ -3,10 +3,9 @@ import { LuExternalLink } from "react-icons/lu";
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import HoverLinkIcon from "@/components/HoverLinkIcon";
 
 import type { Project } from "@/domains/portfolio/types/project";
-import { Link } from "react-router-dom";
-
 export default function ProjectCard({
   id,
   title,
@@ -26,16 +25,17 @@ export default function ProjectCard({
         <div className="md:w-1/3">
           <img
             src={imageUrl}
-            alt={title}
+            alt={`${id} ${title} image`}
             className="z-0 w-full aspect-video object-fit"
           />
         </div>
 
         <div className="flex-1 flex flex-col gap-2">
-          <Link to={`/projects/${id}`}>
-            <span className="leading-none font-semibold">{title}</span>{" "}
-          </Link>
-
+          {/* <Link to={`/projects/${id}`}> */}
+          <span className="leading-none font-semibold group-hover:underline">
+            {title}
+          </span>{" "}
+          {/* </Link> */}
           <p className="text-sm text-muted-foreground group-hover:text-foreground">
             {description}
           </p>
@@ -45,15 +45,15 @@ export default function ProjectCard({
         {/* links */}
         <div className="w-1/3 flex flex-row gap-2">
           {githubUrls &&
-            githubUrls.map((url) => (
-              <a
+            githubUrls.map(({ url, description }) => (
+              <HoverLinkIcon
                 key={url}
-                href={url}
-                target="_blank"
-                className="hover:text-muted-foreground"
-              >
-                <AiFillGithub className="text-xl text-muted-foreground hover:text-foreground" />
-              </a>
+                url={url}
+                description={description}
+                icon={
+                  <AiFillGithub className="text-xl text-muted-foreground hover:text-foreground" />
+                }
+              />
             ))}
           {websiteUrl && (
             <a href={websiteUrl} target="_blank">

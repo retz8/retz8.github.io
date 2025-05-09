@@ -5,5 +5,8 @@ export type Project = {
   imageUrl: string;
   techStack: string[];
   websiteUrl?: string;
-  githubUrls?: string[];
+  githubUrls?: {
+    url: string;
+    description: string;
+  }[];
 };
