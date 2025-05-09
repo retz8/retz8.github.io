@@ -9,7 +9,7 @@ import ProjectsList from "@/domains/portfolio/components/ProjectsList";
 
 export default function PortfolioPage() {
   return (
-    <PageLayout sidebar={<PortfolioSideBar />}>
+    <PageLayout selectedPage="/" sidebar={<PortfolioSideBar />}>
       <div className="space-y-8 md:space-y-16 md:py-20 text-left">
         <section id="about" className="flex items-center">
           <AboutMe />
