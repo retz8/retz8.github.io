@@ -4,7 +4,7 @@
 
 import "./App.css";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 // Pages
@@ -15,13 +15,13 @@ import CookPage from "@/domains/cook/CookPage";
 export default function App() {
   return (
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="/" element={<PortfolioPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/cook" element={<CookPage />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </ThemeProvider>
   );
 }
