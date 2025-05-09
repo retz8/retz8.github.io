@@ -6,9 +6,11 @@ export default function AboutMe() {
       <p>
         I'm a developer who values{" "}
         <span className="font-semibold text-foreground">UX and DX</span>, always
-        seeking better structures and more efficient dev environments. I believe
-        that great technology emerges from collaboration, clear communication,
-        and commitment to continuous improvement.
+        striving to create seamless experiences and intuitive development
+        environments. I double down on clean architecture, readable code, and
+        scalable systems. I believe that great technology is built through clear
+        communication, attention to detail, and a commitment to constant
+        refinement.
       </p>
       {/* 2. 학교 소개 + 과거 경력 간단 요약 */}
       <p>
@@ -35,21 +37,10 @@ export default function AboutMe() {
 
       {/* 3. Past Experiences */}
       <p>
-        In the past, I worked as a{" "}
-        <span className="font-semibold text-foreground">
-          Research Assistant
-        </span>{" "}
-        at{" "}
-        <a
-          href="https://umtri.umich.edu"
-          target="_blank"
-          className="text-foreground hover:text-michigan-maize font-semibold"
-        >
-          UMTRI
-        </a>
-        , where I contributed to projects in transportation research. I also
-        served as Lead Software Engineer for a 7-member team, building apps for
-        Korean student community.
+        In the past, I've worked as a developer across diverse environments,
+        from a research institute to early-stage startups in both the US and
+        Korea. I also led a 7-member development team, building and operating
+        live applications for the Korean student community.
       </p>
 
       {/* 3. Spare Time: 요리 + 축구 */}

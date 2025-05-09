@@ -9,6 +9,12 @@ const projects: Project[] = [
     imageUrl: "/projects/pocha.png",
     techStack: ["Next.js", "TypeScript", "Flask", "WebSockets", "Stripe API"],
     websiteUrl: "https://umichkisa.com/pocha",
+    githubUrls: [
+      {
+        url: "https://github.com/KISA-webpage-development-team/KISA-frontend/tree/pocha/apps/mobile/pocha",
+        description: "",
+      },
+    ],
   },
   {
     id: "umichkisa",
@@ -18,6 +24,12 @@ const projects: Project[] = [
     imageUrl: "/projects/umichkisa.png",
     techStack: ["Next.js", "Flask", "MySQL", "Vercel", "AWS"],
     websiteUrl: "https://umichkisa.com",
+    githubUrls: [
+      {
+        url: "https://github.com/KISA-webpage-development-team/KISA-website-client",
+        description: "",
+      },
+    ],
   },
   {
     id: "dylan",
@@ -27,18 +39,29 @@ const projects: Project[] = [
     imageUrl: "/projects/dylan.png",
     techStack: ["Next.js", "Python", "LLM", "ChromaDB", "Firebase"],
     githubUrls: [
-      "https://github.com/retz8/Dylan-front",
-      "https://github.com/retz8/Dylan-back",
+      {
+        url: "https://github.com/retz8/Dylan-front",
+        description: "Frontend",
+      },
+      {
+        url: "https://github.com/retz8/Dylan-back",
+        description: "Backend",
+      },
     ],
   },
   {
     id: "princeton-slfi",
     title: "Princeton Spotted Lanternfly Initiative",
     description:
-      "A React Native app for tracking daily habits. Features include customizable habit tracking, progress visualization, reminders, and cloud sync. Built with a focus on user experience and offline functionality.",
+      "Official website for local enviromental campaign to eradicate spotted lanternfly in Princeton, NJ. Built with Next.js, TailwindCSS, and Sanity as a CMS.",
     imageUrl: "/projects/princeton-slfi.png",
     techStack: ["Next.js", "TailwindCSS", "Sanity"],
-    githubUrls: ["https://github.com/retz8/slf-website"],
+    githubUrls: [
+      {
+        url: "https://github.com/retz8/slf-website",
+        description: "",
+      },
+    ],
     websiteUrl: "https://princetonlanternfly.org",
   },
   {
@@ -49,8 +72,14 @@ const projects: Project[] = [
     imageUrl: "/projects/pig-says-oink.png",
     techStack: ["React Native", "Node.js", "MongoDB", "Figma"],
     githubUrls: [
-      "https://github.com/retz8/PRISMS-house-events-app",
-      "https://github.com/retz8/PRISMS-house-events-api",
+      {
+        url: "https://github.com/retz8/PRISMS-house-events-app",
+        description: "Frontend",
+      },
+      {
+        url: "https://github.com/retz8/PRISMS-house-events-api",
+        description: "Backend",
+      },
     ],
   },
 ];
