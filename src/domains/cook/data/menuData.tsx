@@ -5,6 +5,10 @@ export const menuDateList: MenuDate[] = [
     id: "2025-05-04",
     date: "2025.05.04",
   },
+  {
+    id: "2025-04-05",
+    date: "2025.04.05",
+  },
 ];
 
 export const menuData: MenuData = [
@@ -78,6 +82,71 @@ export const menuData: MenuData = [
         engName: "white grape hwachae",
         description:
           "Chilled white grapes in a light maesil syrup, topped with a hint of mint and lemon zest. Crisp, refreshing, and the perfect palate cleanser to end the journey.",
+      },
+    ],
+  },
+  {
+    id: "2025-04-05",
+    date: "2025.04.05",
+    description: (
+      <>
+        This 7-course meal is inspired by the natural brightness and acidity of
+        fruits—lime, plum, and green grape—balanced with savory elements. Each
+        dish is designed to highlight the freshness of its ingredients, creating
+        a seamless flow of flavors that evolve with each course. The meal
+        concludes with a light and refreshing strawberry and yogurt blend,
+        leaving a clean finish.
+      </>
+    ),
+    menu: [
+      {
+        id: "carrot-asparagus-sesame-oil",
+        korName: "당근, 아스파라거스, 참기름",
+        engName: "carrot, asparagus, sesame oil",
+        description:
+          "Lightly sautéed carrots and asparagus glazed with sesame oil, capturing their natural sweetness and crisp texture. A touch of salt brings out the earthy flavors, creating a fresh and vibrant start to the meal.",
+      },
+      {
+        id: "soft-small-bites",
+        korName: "부드러운 한입들",
+        engName: "soft small bites",
+        description:
+          "A delicate duo: Hiyayakko with chilled tofu topped with soy-cured egg yolk and fresh sprouts, alongside Chawanmushi—steamed egg custard with a clear dashi broth, smooth and tender.",
+      },
+      {
+        id: "lime-butter-shrimp-gambas",
+        korName: "라임버터소스 새우 감바스",
+        engName: "lime butter shrimp gambas",
+        description:
+          "Pan-seared shrimp cooked with garlic, spring onion, and onions, then finished with a bright lime butter sauce. The zest of lime adds freshness, while the butter enriches the shrimp’s natural sweetness.",
+      },
+      {
+        id: "curry-sea-bass-green-grape",
+        korName: "커리, 농어, 청포도",
+        engName: "curry, sea bass, green grape",
+        description:
+          "Perfectly poached sea bass served with a butter curry sauce and a touch of green grape for acidity. The buttery richness of the sauce contrasts with the lightness of the fish, while the grapes add a refreshing finish.",
+      },
+      {
+        id: "acorn-noodle",
+        korName: "도토리 국수",
+        engName: "acorn noodle",
+        description:
+          "A classic Korean dish featuring earthy acorn noodles in a light anchovy broth. Topped with lightly blanched water parsley and served with a side of kimchi.",
+      },
+      {
+        id: "filet-mignon-yolk-plum",
+        korName: "안심, 노른자, 자두",
+        engName: "filet mignon, yolk, plum",
+        description:
+          "Tender filet mignon, cold-seared to lock in its juices, paired with a hollandaise sauce and a smooth plum purée. The balance of savory, creamy, and sweet elements creates a satisfying depth of flavor.",
+      },
+      {
+        id: "strawberry-yogurt",
+        korName: "딸기와 요거트",
+        engName: "strawberry & yogurt",
+        description:
+          "A refreshing blend of strawberries, Greek yogurt, and Extra Virgin Olive Oil. The slight tartness of the yogurt elevates the sweetness of the strawberries, providing a light and satisfying end to the meal.",
       },
     ],
   },

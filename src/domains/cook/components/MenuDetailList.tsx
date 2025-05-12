@@ -16,7 +16,7 @@ export default function MenuDetailList({
           <img
             src={item.image}
             alt={item.korName}
-            className="w-full md:w-2/5 aspect-square"
+            className="w-full md:w-2/5 aspect-square object-cover"
           />
           <div className="flex flex-col">
             <span className="group-hover:font-[500]">{item.engName}</span>
