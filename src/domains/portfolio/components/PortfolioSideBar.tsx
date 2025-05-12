@@ -51,7 +51,7 @@ export default function PortfolioSideBar() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const yOffset = 75; // 원하는 오프셋 값 (px)
+      const yOffset = 77; // 원하는 오프셋 값 (px)
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - yOffset;
 
