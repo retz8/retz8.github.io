@@ -1,6 +1,6 @@
 export default function AboutCook() {
   return (
-    <div className="bg-pink-300 flex flex-col gap-6 text-muted-foreground">
+    <div className="flex flex-col gap-6 text-muted-foreground">
       {/* 1. 요리에 대한 내 철학 및 소개 */}
       <p className="text-foreground">
         My passion for{" "}
