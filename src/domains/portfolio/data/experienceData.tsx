@@ -8,7 +8,7 @@ const experiencesListData: Experience[] = [
     companyTailwindColor: "text-tesla-red",
     companyLink: "https://www.tesla.com",
     location: "Fremont, CA",
-    description: "Incoming Summer 2025, Digital Experience team",
+    description: "Digital Experience team",
     startDate: "May 2025",
     endDate: "Present",
     techStack: ["React", "React Native"],
