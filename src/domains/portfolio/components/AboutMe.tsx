@@ -20,9 +20,17 @@ export default function AboutMe() {
         >
           University of Michigan
         </span>
-        , majoring in Computer Science. I recently completed a{" "}
+        , majoring in Computer Science. I'm currently <span className="font-semibold text-foreground">taking a gap year for
+        mandatory military service in South Korea </span> and serving as a Telecommunication Network Specialist at Ground Operation Command.
+      </p>
+
+      {/* 3. Past Experiences */}
+      <p>
+        In the past, I've worked as a developer across diverse environments,
+        from a research institute to early-stage startups in both the US and
+        Korea. I was also a{" "}
         <span className="font-semibold text-foreground">
-          Software Engineer Internship
+          Software Engineer Intern
         </span>{" "}
         at{" "}
         <a
@@ -32,15 +40,9 @@ export default function AboutMe() {
         >
           Tesla
         </a>{" "}
-        on the Digital Experience team (May 2025 - Aug 2025).
-      </p>
-
-      {/* 3. Past Experiences */}
-      <p>
-        In the past, I've worked as a developer across diverse environments,
-        from a research institute to early-stage startups in both the US and
-        Korea. I also led a 7-member development team, building and operating
-        live applications for the Korean student community.
+        on the Digital Experience team. I also led a 7-member
+        development team, building and operating live applications for the
+        Korean student community.
       </p>
 
       {/* 3. Spare Time: 요리 + 축구 */}

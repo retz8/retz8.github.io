@@ -8,10 +8,27 @@ const experiencesListData: Experience[] = [
     companyTailwindColor: "text-tesla-red",
     companyLink: "https://www.tesla.com",
     location: "Fremont, CA",
-    description: "Digital Experience team",
+    description: (
+      <>
+        Led end-to-end frontend development for{" "}
+        <a
+          href="https://www.tesla.com/energy-savings"
+          target="_blank"
+          className="hover:underline group-hover:underline"
+        >
+          tesla.com/energy-savings
+        </a>{" "}
+        in Next.js, TypeScript, and SCSS, delivering an accessible responsive
+        savings calculator. Worked at Energy CX Order, Digital Experience Team.
+      </>
+    ),
     startDate: "May 2025",
     endDate: "Aug 2025",
-    techStack: ["React", "React Native"],
+    techStack: [
+      "Next.js",
+      "Docker",
+      "Jenkins",
+    ],
   },
   {
     id: "umtri-research-assistant",

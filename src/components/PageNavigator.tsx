@@ -33,7 +33,7 @@ export default function PageNavigator({ selectedPage }: PageNavigatorProps) {
         <Link
           key={item.to}
           to={item.to}
-          className={`flex flex-row items-center gap-2 ${
+          className={`flex flex-row items-center gap-2  ${
             selectedPage === item.to
               ? "text-foreground font-[500]"
               : "text-muted-foreground"

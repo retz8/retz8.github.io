@@ -92,7 +92,7 @@ export default function PortfolioSideBar() {
               />
               <span
                 className={cn(
-                  "inline-block transition-all duration-150",
+                  "inline-block transition-all duration-150 cursor-pointer",
                   activeSection === id
                     ? "translate-x-0"
                     : "translate-x-0 group-hover:translate-x-4"
