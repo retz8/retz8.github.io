@@ -20,9 +20,9 @@ export default function AboutMe() {
         >
           University of Michigan
         </span>
-        , majoring in Computer Science. I'm currently a{" "}
+        , majoring in Computer Science. I recently completed a{" "}
         <span className="font-semibold text-foreground">
-          Software Engineer Intern
+          Software Engineer Internship
         </span>{" "}
         at{" "}
         <a
@@ -32,7 +32,7 @@ export default function AboutMe() {
         >
           Tesla
         </a>{" "}
-        on the Digital Experience team.
+        on the Digital Experience team (May 2025 - Aug 2025).
       </p>
 
       {/* 3. Past Experiences */}
