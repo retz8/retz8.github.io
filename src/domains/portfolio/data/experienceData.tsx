@@ -10,7 +10,7 @@ const experiencesListData: Experience[] = [
     location: "Fremont, CA",
     description: "Digital Experience team",
     startDate: "May 2025",
-    endDate: "Present",
+    endDate: "Aug 2025",
     techStack: ["React", "React Native"],
   },
   {
