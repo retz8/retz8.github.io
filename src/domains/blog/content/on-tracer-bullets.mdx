@@ -1,0 +1,31 @@
+---
+title: "On Tracer Bullets"
+date: "2026-06-07"
+summary: "Why I build features as thin vertical slices instead of finishing one layer at a time."
+---
+
+When I start a feature, the temptation is to build it in horizontal layers: all the data
+plumbing first, then all the logic, then all the UI. It feels orderly. It is also the
+slowest way to find out you were wrong.
+
+## What a tracer bullet is
+
+A tracer bullet is a thin slice that cuts through every layer at once — just enough of the
+schema, the routing, and the UI to make one narrow path work end to end. You can see it
+land. You can correct your aim before you have fired a thousand rounds.
+
+## Why it beats finishing a layer at a time
+
+A finished layer demos nothing. A finished slice demos something real, which means:
+
+- Integration risk shows up on day one, not at the end.
+- Every slice leaves the app in a working state.
+- The plan stays honest, because each phase has to actually run.
+
+## What this looks like in practice
+
+For this very writing section, the first slice was not "build the article system." It was
+"make one file render at its own URL." Everything else — the list, the highlighting, the
+navigation — hung off a path that already worked.
+
+That is the whole idea: aim, fire one round, watch where it lands, adjust.
