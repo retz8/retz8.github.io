@@ -10,6 +10,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 // Pages
 import PortfolioPage from "@/domains/portfolio/PortfolioPage";
 import BlogPage from "@/domains/blog/BlogPage";
+import ArticlePage from "@/domains/blog/ArticlePage";
 import CookPage from "@/domains/cook/CookPage";
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<PortfolioPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<ArticlePage />} />
           <Route path="/cook" element={<CookPage />} />
         </Routes>
       </Router>
