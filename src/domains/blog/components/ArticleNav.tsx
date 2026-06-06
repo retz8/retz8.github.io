@@ -20,11 +20,8 @@ export default function ArticleNav({
           to={`/blog/${prev.slug}`}
           className="group flex flex-col gap-1 max-w-[45%] text-left"
         >
-          <span className="flex items-center gap-1 text-muted-foreground">
-            <ArrowLeft size={14} /> Newer
-          </span>
-          <span className="text-foreground group-hover:underline underline-offset-4">
-            {prev.title}
+          <span className="flex items-center justify-end gap-1 text-foreground group-hover:underline underline-offset-4">
+            <ArrowLeft size={14} /> {prev.title} 
           </span>
         </Link>
       ) : (
@@ -35,11 +32,8 @@ export default function ArticleNav({
           to={`/blog/${next.slug}`}
           className="group flex flex-col gap-1 max-w-[45%] text-right ml-auto"
         >
-          <span className="flex items-center justify-end gap-1 text-muted-foreground">
-            Older <ArrowRight size={14} />
-          </span>
-          <span className="text-foreground group-hover:underline underline-offset-4">
-            {next.title}
+          <span className="flex items-center justify-end gap-1 text-foreground group-hover:underline underline-offset-4">
+            {next.title} <ArrowRight size={14} />
           </span>
         </Link>
       ) : (

@@ -15,7 +15,6 @@ export default function ArticleToc({ items }: { items: TocItem[] }) {
   return (
     // Desktop-only: on mobile the sidebar stacks above the prose, so we omit the TOC.
     <nav className="hidden md:block text-sm" aria-label="Table of contents">
-      <p className="text-muted-foreground font-[500] mb-3">On this page</p>
       <ul className="flex flex-col gap-2 border-l border-border">
         {items.map((item) => (
           <li key={item.id} className={item.level === 3 ? "pl-7" : "pl-4"}>
