@@ -1,8 +1,17 @@
 import { AiFillGithub } from "react-icons/ai";
 import { LuExternalLink } from "react-icons/lu";
+import { Expand } from "lucide-react";
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import HoverLinkIcon from "@/components/HoverLinkIcon";
 
 import type { Project } from "@/domains/portfolio/types/project";
@@ -13,7 +22,7 @@ export default function ProjectCard({
   imageUrl,
   techStack,
   githubUrls,
-  websiteUrl,
+  websiteUrls,
 }: Project) {
   return (
     <Card
@@ -23,11 +32,35 @@ export default function ProjectCard({
     >
       <div className="flex flex-col md:flex-row gap-4">
         <div className="md:w-1/3">
-          <img
-            src={imageUrl}
-            alt={`${id} ${title} image`}
-            className="z-0 w-full aspect-video object-fit"
-          />
+          <Dialog>
+            <DialogTrigger asChild>
+              <button
+                type="button"
+                aria-label={`Expand ${title} image`}
+                className="group/thumb relative block w-full overflow-hidden rounded cursor-zoom-in"
+              >
+                <img
+                  src={imageUrl}
+                  alt={`${id} ${title} image`}
+                  className="z-0 w-full aspect-video object-fit transition-transform duration-300 group-hover/thumb:scale-105"
+                />
+                <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300 group-hover/thumb:bg-black/30">
+                  <Expand className="size-6 text-white opacity-0 transition-opacity duration-300 group-hover/thumb:opacity-100" />
+                </span>
+              </button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-2xl">
+              <img
+                src={imageUrl}
+                alt={`${id} ${title} image`}
+                className="w-full max-h-[70vh] object-contain"
+              />
+              <DialogHeader>
+                <DialogTitle>{title}</DialogTitle>
+                <DialogDescription>{description}</DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
         </div>
 
         <div className="flex-1 flex flex-col gap-2">
@@ -55,11 +88,17 @@ export default function ProjectCard({
                 }
               />
             ))}
-          {websiteUrl && (
-            <a href={websiteUrl} target="_blank">
-              <LuExternalLink className="text-xl text-muted-foreground hover:text-foreground" />
-            </a>
-          )}
+          {websiteUrls &&
+            websiteUrls.map(({ url, description }) => (
+              <HoverLinkIcon
+                key={url}
+                url={url}
+                description={description}
+                icon={
+                  <LuExternalLink className="text-xl text-muted-foreground hover:text-foreground" />
+                }
+              />
+            ))}
         </div>
         {/* Tech Stack */}
         <ul className="flex-1 flex flex-wrap gap-2">

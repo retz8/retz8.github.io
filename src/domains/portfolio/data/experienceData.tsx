@@ -111,6 +111,6 @@ const experiencesListData: Experience[] = [
     endDate: "Sep 2022",
     techStack: ["Solidity", "Hardhat", "Web3"],
   },
-];
+];  
 
 export { experiencesListData };
