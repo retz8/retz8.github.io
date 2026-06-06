@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@plugin "@tailwindcss/typography";
+
 @custom-variant dark (&:is(.dark *));
 
 #root {
@@ -134,4 +136,47 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ──────────────────────────────────────────────
+   Article prose (blog) — typography themed to tokens
+   ────────────────────────────────────────────── */
+.prose {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-lead: var(--muted-foreground);
+  --tw-prose-links: var(--foreground);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-counters: var(--muted-foreground);
+  --tw-prose-bullets: var(--border);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--muted-foreground);
+  --tw-prose-quote-borders: var(--border);
+  --tw-prose-captions: var(--muted-foreground);
+  --tw-prose-code: var(--foreground);
+  --tw-prose-pre-code: var(--foreground);
+  --tw-prose-pre-bg: var(--secondary);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Shiki owns code blocks: switch token colors by theme, supply our own surface. */
+.prose [data-rehype-pretty-code-figure] pre {
+  background-color: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  overflow-x: auto;
+}
+.prose [data-rehype-pretty-code-figure] code {
+  background-color: transparent;
+  padding: 0;
+  font-weight: inherit;
+}
+.prose [data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-light);
+}
+.dark .prose [data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-dark);
 }

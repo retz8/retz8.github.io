@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="520" height="120" font-family="Poppins, sans-serif">
+  <rect width="520" height="120" fill="none"/>
+  <g fill="#f4f4f5" stroke="#d4d4d8" stroke-width="1">
+    <rect x="8" y="40" width="92" height="40" rx="6"/>
+    <rect x="140" y="40" width="92" height="40" rx="6"/>
+    <rect x="272" y="40" width="92" height="40" rx="6"/>
+    <rect x="404" y="40" width="108" height="40" rx="6"/>
+  </g>
+  <g fill="#18181b" font-size="13" text-anchor="middle">
+    <text x="54" y="64">.mdx</text>
+    <text x="186" y="64">glob</text>
+    <text x="318" y="64">route</text>
+    <text x="458" y="64">render</text>
+  </g>
+  <g stroke="#a1a1aa" stroke-width="1.5" marker-end="url(#a)">
+    <line x1="100" y1="60" x2="138" y2="60"/>
+    <line x1="232" y1="60" x2="270" y2="60"/>
+    <line x1="364" y1="60" x2="402" y2="60"/>
+  </g>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#a1a1aa"/>
+    </marker>
+  </defs>
+</svg>

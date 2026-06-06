@@ -24,7 +24,9 @@ export default function ArticlePage() {
           <h1 className="text-2xl font-[500]">{title}</h1>
           <p className="text-muted-foreground text-sm">{date}</p>
         </header>
-        <Body />
+        <div className="prose max-w-none">
+          <Body />
+        </div>
       </article>
     </PageLayout>
   );

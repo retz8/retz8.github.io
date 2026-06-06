@@ -15,3 +15,19 @@ not for the section to announce.
 Later phases will add a browsable list, syntax-highlighted code, images, a table of
 contents, and a way to move between articles. Right now, if you can read this, the
 foundation works.
+
+## How an article reaches the page
+
+Each `.mdx` file flows through a small, predictable pipeline before it becomes a page:
+
+![The article pipeline: mdx to glob to route to render](/blog/hello-writing/pipeline.svg)
+
+Discovery is just a glob over the content folder — no registry to maintain:
+
+```ts
+const modules = import.meta.glob("@/domains/blog/content/*.mdx", { eager: true });
+
+const slug = path.split("/").pop()!.replace(/\.mdx$/, "");
+```
+
+That is the whole trick. Add a file, and it shows up — ordered by its frontmatter date.
