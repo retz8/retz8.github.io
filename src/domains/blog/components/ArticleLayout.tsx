@@ -27,7 +27,7 @@ export default function ArticleLayout({ sidebar, children }: ArticleLayoutProps)
       <div className="flex flex-col md:flex-row">
         <AnimatePresence mode="wait">
           <motion.aside
-            className="md:fixed md:top-0 w-full md:w-[15%] md:h-screen
+            className="md:fixed md:top-0 w-full md:w-[10%] md:h-screen
           py-10 md:py-20 mt-10 md:mt-0
           flex flex-col px-8 md:px-0"
             initial={{ opacity: 0, x: -25 }}
