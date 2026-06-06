@@ -8,7 +8,7 @@ const projects: Project[] = [
     id: "pastiche",
     title: "Pastiche",
     description:
-      "Claude Code plugin that implements frontend UI faithfully within an existing design system, rather than inventing patterns. Open-sourced under MIT with an implementer–reviewer loop and a GitHub Primer reference example.",
+      "Claude Code plugin that implements frontend UI faithfully within Design System and Component Library. Open-sourced under MIT with an implementer–reviewer loop and a GitHub Primer reference example.",
     imageUrl: "/projects/pastiche.svg",
     techStack: ["Claude Code Plugin", "Design System", "Harness Engineering", "DESIGN.md"],
     githubUrls: [
