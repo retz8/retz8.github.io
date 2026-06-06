@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Utensils, Home } from "lucide-react";
+import { Utensils, Home, Newspaper } from "lucide-react";
 
 const pageNavItems = [
   {
@@ -7,11 +7,11 @@ const pageNavItems = [
     icon: Home,
     to: "/",
   },
-  // {
-  //   label: "BLOG",
-  //   icon: Newspaper,
-  //   to: "/blog",
-  // },
+  {
+    label: "BLOG",
+    icon: Newspaper,
+    to: "/blog",
+  },
   {
     label: "COOK",
     icon: Utensils,
