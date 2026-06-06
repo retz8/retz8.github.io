@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 
-import PageLayout from "@/components/PageLayout";
+import ArticleLayout from "@/domains/blog/components/ArticleLayout";
 import ArticleSideBar from "@/domains/blog/components/ArticleSideBar";
 import ArticleNav from "@/domains/blog/components/ArticleNav";
 import type { TocItem } from "@/domains/blog/components/ArticleToc";
@@ -41,10 +41,10 @@ export default function ArticlePage() {
   const { prev, next } = getArticleNeighbors(article.slug);
 
   return (
-    <PageLayout selectedPage="/blog" sidebar={<ArticleSideBar toc={toc} />}>
-      <article className="space-y-8 md:py-20 text-left w-full">
+    <ArticleLayout sidebar={<ArticleSideBar toc={toc} />}>
+      <article className="space-y-8 md:py-20 text-left w-full max-w-4xl">
         <header className="space-y-2">
-          <h1 className="text-2xl font-[500]">{title}</h1>
+          <h1 className="text-3xl font-[500]">{title}</h1>
           <p className="text-muted-foreground text-sm">{date}</p>
         </header>
         <div ref={bodyRef} className="prose max-w-none">
@@ -52,6 +52,6 @@ export default function ArticlePage() {
         </div>
         <ArticleNav prev={prev} next={next} />
       </article>
-    </PageLayout>
+    </ArticleLayout>
   );
 }

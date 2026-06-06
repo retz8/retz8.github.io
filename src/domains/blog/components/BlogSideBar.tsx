@@ -13,7 +13,7 @@ export default function BlogSideBar() {
     <div className="flex flex-col h-full gap-10">
       <NameCard
         header="Jioh In"
-        subHeader="Writing"
+        subHeader="Thoughts & Articles"
         description="The thinking behind the work"
       />
 
