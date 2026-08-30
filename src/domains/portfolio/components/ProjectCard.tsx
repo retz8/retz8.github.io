@@ -32,35 +32,42 @@ export default function ProjectCard({
     >
       <div className="flex flex-col md:flex-row gap-4">
         <div className="md:w-1/3">
-          <Dialog>
-            <DialogTrigger asChild>
-              <button
-                type="button"
-                aria-label={`Expand ${title} image`}
-                className="group/thumb relative block w-full overflow-hidden rounded cursor-zoom-in"
-              >
+          {imageUrl ? (
+            <Dialog>
+              <DialogTrigger asChild>
+                <button
+                  type="button"
+                  aria-label={`Expand ${title} image`}
+                  className="group/thumb relative block w-full overflow-hidden rounded cursor-zoom-in"
+                >
+                  <img
+                    src={imageUrl}
+                    alt={`${id} ${title} image`}
+                    className="z-0 w-full aspect-video object-fit transition-transform duration-300 group-hover/thumb:scale-105"
+                  />
+                  <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300 group-hover/thumb:bg-black/30">
+                    <Expand className="size-6 text-white opacity-0 transition-opacity duration-300 group-hover/thumb:opacity-100" />
+                  </span>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-2xl">
                 <img
                   src={imageUrl}
                   alt={`${id} ${title} image`}
-                  className="z-0 w-full aspect-video object-fit transition-transform duration-300 group-hover/thumb:scale-105"
+                  className="w-full max-h-[70vh] object-contain"
                 />
-                <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300 group-hover/thumb:bg-black/30">
-                  <Expand className="size-6 text-white opacity-0 transition-opacity duration-300 group-hover/thumb:opacity-100" />
-                </span>
-              </button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-2xl">
-              <img
-                src={imageUrl}
-                alt={`${id} ${title} image`}
-                className="w-full max-h-[70vh] object-contain"
-              />
-              <DialogHeader>
-                <DialogTitle>{title}</DialogTitle>
-                <DialogDescription>{description}</DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
+                <DialogHeader>
+                  <DialogTitle>{title}</DialogTitle>
+                  <DialogDescription>{description}</DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+          ) : (
+            <div
+              aria-hidden
+              className="w-full aspect-video rounded bg-muted"
+            />
+          )}
         </div>
 
         <div className="flex-1 flex flex-col gap-2">
