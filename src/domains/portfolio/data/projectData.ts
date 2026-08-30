@@ -5,6 +5,32 @@ const projects: Project[] = [
   // Military service (2026 ~ )
   // ──────────────────────────────────────────────
   {
+    id: "a2ui-github",
+    title: "A2UI GitHub",
+    description:
+      "Reimagined GitHub as a generative UI surface where an agent paints the interface from GitHub's own Primer design system over the A2UI + A2A protocol. Shipped a full Primer catalog of 56 components, a live agent wired to the GitHub MCP server, and a canvas-first shell with a replayable timeline.",
+    techStack: ["A2UI", "A2A Protocol", "MCP", "Generative UI", "Primer"],
+    githubUrls: [
+      {
+        url: "https://github.com/retz8/a2ui-github",
+        description: "",
+      },
+    ],
+  },
+  {
+    id: "daily-work-harness",
+    title: "Daily Work Harness",
+    description:
+      "Claude Code plugin that packages the personal routine I work with almost every day into reusable skills — grilling a spec, delegating it as issues, reviewing the PRs, and running the whole loop autonomously overnight. Built for my own desk first, then installed back into every project that followed as an external dependency.",
+    techStack: ["Claude Code Plugin", "Agent Skills", "Harness Engineering", "Autonomous Workflow"],
+    githubUrls: [
+      {
+        url: "https://github.com/retz8/daily-work-harness",
+        description: "",
+      },
+    ],
+  },
+  {
     id: "pastiche",
     title: "Pastiche",
     description:
