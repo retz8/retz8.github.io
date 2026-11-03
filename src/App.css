@@ -20,6 +20,10 @@
 
   --color-tesla-red: oklch(0.53 0.2178 29.23);
 
+  /* Portfolio type */
+  --font-geist: "Geist", sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+
   /* Default Colors */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

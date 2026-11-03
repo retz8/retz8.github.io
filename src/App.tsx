@@ -4,7 +4,12 @@
 
 import "./App.css";
 
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 // Pages
@@ -20,6 +25,8 @@ export default function App() {
           <Route path="/" element={<PortfolioPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/cook" element={<CookPage />} />
+          {/* /ko and /resume are linked but not built yet: send them home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>
     </ThemeProvider>
