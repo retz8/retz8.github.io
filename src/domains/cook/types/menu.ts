@@ -1,30 +1,15 @@
-export type MenuDate = {
+// One course of a tasting dinner. Its photo is
+// public/foods/<dinner id>/<course id>.webp.
+export type Course = {
   id: string;
-  date: string;
-};
-
-export type Food = {
-  id: string;
-  korName: string;
   engName: string;
+  korName: string;
   description: string;
 };
 
-export type MenuDataItem = {
+// One tasting dinner: its date is its title.
+export type Dinner = {
   id: string;
   date: string;
-  description: React.ReactNode;
-  menu: Food[];
+  courses: Course[];
 };
-
-export type MenuPreviewItem = {
-  id: string;
-  korName: string;
-  engName: string;
-};
-
-export type MenuDetailItem = Food & {
-  image: string;
-};
-
-export type MenuData = MenuDataItem[];

@@ -4,12 +4,16 @@
 
 import "./App.css";
 
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 // Pages
 import PortfolioPage from "@/domains/portfolio/PortfolioPage";
-import BlogPage from "@/domains/blog/BlogPage";
 import CookPage from "@/domains/cook/CookPage";
 
 export default function App() {
@@ -18,8 +22,9 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<PortfolioPage />} />
-          <Route path="/blog" element={<BlogPage />} />
           <Route path="/cook" element={<CookPage />} />
+          {/* unknown routes go home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>
     </ThemeProvider>

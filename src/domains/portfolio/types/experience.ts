@@ -1,14 +1,12 @@
-// Work Experience data type
-
+// One row of the Experience list.
 export type Experience = {
   id: string;
-  title: string;
-  company: string;
-  companyLink?: string;
-  companyTailwindColor?: string;
-  location: string;
-  description: string | React.ReactNode;
-  startDate: string;
-  endDate: string;
-  techStack: string[];
+  organization: string;
+  role: string;
+  // The work itself, shown after the role.
+  link?: {
+    label: string;
+    url: string;
+  };
+  period: string;
 };

@@ -1,39 +1,18 @@
 // Cook page - 'cook' domain (/cook)
 
-import PageLayout from "@/components/PageLayout";
-import CookSideBar from "@/domains/cook/components/CookSideBar";
-import AboutCook from "@/domains/cook/components/AboutCook";
-import MenuSection from "@/domains/cook/components/MenuSection";
-import { menuData } from "@/domains/cook/data/menuData";
-import type { MenuDataItem } from "@/domains/cook/types/menu";
+import SiteLayout from "@/components/SiteLayout";
+import CookIntro from "@/domains/cook/components/CookIntro";
+import DinnerSection from "@/domains/cook/components/DinnerSection";
+import { dinners } from "@/domains/cook/data/menuData";
 
 export default function CookPage() {
-  function addDataIdToMenuDataItemId(menuDataItem: MenuDataItem): MenuDataItem {
-    // concat id of menuData into each menu's id to have unique keys
-    // ex) 2025-05-04-octopus-ceviche
-    return {
-      ...menuDataItem,
-      menu: menuDataItem.menu.map((menu) => ({
-        ...menu,
-        id: `${menuDataItem.id}-${menu.id}`,
-      })),
-    };
-  }
-
   return (
-    <PageLayout selectedPage="/cook" sidebar={<CookSideBar />}>
-      <div className="space-y-8 md:space-y-16 md:py-20 text-left">
-        <section id="about">
-          <AboutCook />
-        </section>
-        {menuData.map((menuDataItem) => (
-          <section id={menuDataItem.id}>
-            <MenuSection
-              menuDataItem={addDataIdToMenuDataItemId(menuDataItem)}
-            />
-          </section>
+    <SiteLayout intro={<CookIntro />}>
+      <div className="flex flex-col gap-24">
+        {dinners.map((dinner) => (
+          <DinnerSection key={dinner.id} {...dinner} />
         ))}
       </div>
-    </PageLayout>
+    </SiteLayout>
   );
 }
