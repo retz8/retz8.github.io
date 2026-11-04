@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
+import { cn } from "@/lib/utils";
 
 const textLink =
   "flex min-h-10 items-center px-2.5 text-[14px] text-[#57534e] hover:underline";
@@ -17,9 +19,14 @@ export default function SiteHeader() {
         retz8.github.io
       </Link>
       <nav aria-label="Site" className="flex items-center gap-1">
-        <Link to="/cook" className={textLink}>
+        <NavLink
+          to="/cook"
+          className={({ isActive }) =>
+            cn(textLink, isActive && "font-medium text-[#1c1917]")
+          }
+        >
           Cook
-        </Link>
+        </NavLink>
         {divider}
         <a
           href="https://github.com/retz8"
