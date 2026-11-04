@@ -20,8 +20,9 @@
 
   --color-tesla-red: oklch(0.53 0.2178 29.23);
 
-  /* Portfolio type */
-  --font-geist: "Geist", sans-serif;
+  /* Portfolio type. Geist has no Hangul, so Korean text falls to Noto Sans KR
+     instead of whatever the OS picks. */
+  --font-geist: "Geist", "Noto Sans KR", sans-serif;
   --font-geist-mono: "Geist Mono", monospace;
 
   /* Default Colors */

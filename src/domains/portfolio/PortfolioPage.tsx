@@ -20,7 +20,7 @@ export default function PortfolioPage() {
   }, []);
 
   return (
-    <div className="w-full text-left font-geist leading-[normal] text-[#1c1917] [font-synthesis:auto]">
+    <div className="w-full text-left font-geist leading-[normal] text-[#1c1917]">
       <div className="mx-auto box-content flex max-w-[800px] flex-col gap-16 px-6 pt-10 pb-[120px]">
         <header className="flex flex-col gap-8">
           <SiteHeader />
