@@ -38,7 +38,7 @@ export default function ProjectGroups() {
                 rel="noreferrer"
                 className="flex min-h-10 items-center self-start text-[14px] text-[#44403c] underline underline-offset-4"
               >
-                {group.more.label} →
+                {group.more.label}&nbsp;→
               </a>
             )}
             {group.rows && (
@@ -55,7 +55,7 @@ export default function ProjectGroups() {
                         rel="noreferrer"
                         className="w-fit text-[16px] font-medium text-[#1c1917] underline underline-offset-4"
                       >
-                        {row.title} ↗
+                        {row.title}&nbsp;↗
                       </a>
                     ) : (
                       <span className="w-fit text-[16px] font-medium text-[#1c1917]">

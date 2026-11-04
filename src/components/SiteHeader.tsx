@@ -6,7 +6,7 @@ const iconLink =
   "flex h-10 w-10 items-center justify-center text-[#57534e] transition-colors duration-150";
 const divider = <span aria-hidden="true" className="mx-1.5 h-[18px] w-px bg-[#e7e5e4]" />;
 
-// The site's top line: home on the left; pages, profiles and language on the right.
+// The site's top line: home on the left; pages and profiles on the right.
 export default function SiteHeader() {
   return (
     <div className="flex flex-wrap items-baseline justify-between gap-x-4">
@@ -17,9 +17,6 @@ export default function SiteHeader() {
         retz8.github.io
       </Link>
       <nav aria-label="Site" className="flex items-center gap-1">
-        <Link to="/blog" className={textLink}>
-          Blog
-        </Link>
         <Link to="/cook" className={textLink}>
           Cook
         </Link>
@@ -55,10 +52,6 @@ export default function SiteHeader() {
             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
           </svg>
         </a>
-        {divider}
-        <Link to="/ko" lang="ko" hrefLang="ko" className={textLink}>
-          한국어
-        </Link>
       </nav>
     </div>
   );

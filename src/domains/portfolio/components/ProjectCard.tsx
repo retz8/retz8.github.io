@@ -15,7 +15,7 @@ export default function ProjectCard({ id, title, url, description }: ProjectCard
           rel="noreferrer"
           className="w-fit text-[16px] font-medium text-[#1c1917] underline underline-offset-4 after:absolute after:inset-0 after:z-10"
         >
-          {title} ↗
+          {title}&nbsp;↗
         </a>
         <div className="text-[16px] leading-6 text-[#57534e]">{description}</div>
       </div>

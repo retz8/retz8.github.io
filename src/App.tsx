@@ -25,7 +25,7 @@ export default function App() {
           <Route path="/" element={<PortfolioPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/cook" element={<CookPage />} />
-          {/* /ko and /resume are linked but not built yet: send them home */}
+          {/* unknown routes go home */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>

@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import { experiences } from "@/domains/portfolio/data/experienceData";
 
 export default function ExperienceList() {
@@ -9,12 +7,15 @@ export default function ExperienceList() {
         <h2 className="m-0 text-[20px] font-semibold tracking-[-0.01em]">
           Experience
         </h2>
-        <Link
-          to="/resume"
+        {/* served as a static file from public/resume.pdf */}
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noreferrer"
           className="text-[14px] text-[#44403c] underline underline-offset-4"
         >
           Full resume ↗
-        </Link>
+        </a>
       </div>
       <div className="flex flex-col">
         {experiences.map(({ id, organization, role, link, period }) => (
@@ -38,7 +39,7 @@ export default function ExperienceList() {
                     rel="noreferrer"
                     className="text-[#44403c] underline underline-offset-[3px]"
                   >
-                    {link.label} ↗
+                    {link.label}&nbsp;↗
                   </a>
                 </>
               )}
