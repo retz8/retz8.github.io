@@ -1,21 +1,37 @@
 import ThumbFrame from "./ThumbFrame";
+import { useLocale } from "@/lib/locale";
+
+// The diagram's words, per language.
+const TEXT = {
+  en: {
+    fact: "fact",
+    knowledge: "knowledge",
+    wisdom: "wisdom",
+  },
+  ko: {
+    fact: "사실",
+    knowledge: "지식",
+    wisdom: "지혜",
+  },
+};
 
 // Pastiche: fact, knowledge and wisdom docs, and the UI an agent builds from them.
 // Drawn on the portfolio redesign canvas; markup kept as drawn.
 export default function PasticheThumb() {
+  const t = TEXT[useLocale()];
   return (
-    <ThumbFrame tone="light" style={{ padding: "20px 28px", display: "flex", alignItems: "center", justifyContent: "center", gap: "24px", fontFamily: "'Geist Mono', monospace", fontSize: "11px" }}>
+    <ThumbFrame tone="light" style={{ padding: "20px 28px", display: "flex", alignItems: "center", justifyContent: "center", gap: "24px", fontFamily: "'Geist Mono', 'Noto Sans KR', monospace", fontSize: "11px" }}>
       <div style={{ position: "relative", width: "150px", height: "104px", flex: "none" }}>
         <div style={{ position: "absolute", left: "0", top: "0", width: "118px", height: "62px", background: "#ffffff", border: "1px solid #d6d3d1", borderRadius: "6px", padding: "8px 10px", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: "6px" }}>
-          <span style={{ color: "#78716c" }}>fact</span>
+          <span style={{ color: "#78716c" }}>{t.fact}</span>
           <span style={{ width: "70%", height: "5px", borderRadius: "3px", background: "#e7e5e4" }} />
         </div>
         <div style={{ position: "absolute", left: "16px", top: "21px", width: "118px", height: "62px", background: "#ffffff", border: "1px solid #d6d3d1", borderRadius: "6px", padding: "8px 10px", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: "6px" }}>
-          <span style={{ color: "#78716c" }}>knowledge</span>
+          <span style={{ color: "#78716c" }}>{t.knowledge}</span>
           <span style={{ width: "60%", height: "5px", borderRadius: "3px", background: "#e7e5e4" }} />
         </div>
         <div style={{ position: "absolute", left: "32px", top: "42px", width: "118px", height: "62px", background: "#ffffff", border: "1px solid #a8a29e", borderRadius: "6px", padding: "8px 10px", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: "6px" }}>
-          <span style={{ color: "#1c1917" }}>wisdom</span>
+          <span style={{ color: "#1c1917" }}>{t.wisdom}</span>
           <span style={{ width: "80%", height: "5px", borderRadius: "3px", background: "#d6d3d1" }} />
           <span style={{ width: "55%", height: "5px", borderRadius: "3px", background: "#e7e5e4" }} />
         </div>

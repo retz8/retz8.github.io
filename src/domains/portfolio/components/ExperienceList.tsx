@@ -1,20 +1,24 @@
 import { experiences } from "@/domains/portfolio/data/experienceData";
+import { localize, useLocale } from "@/lib/locale";
 
 export default function ExperienceList() {
+  const locale = useLocale();
+
   return (
     <div className="flex flex-col gap-5">
       <div className="flex items-baseline justify-between">
         <h2 className="m-0 text-[20px] font-semibold tracking-[-0.01em]">
-          Experience
+          {locale === "ko" ? "경력" : "Experience"}
         </h2>
-        {/* served as a static file from public/resume.pdf */}
+        {/* served as a static file from public/resume.pdf; there is no
+            Korean resume yet, so the Korean page says it is in English */}
         <a
           href="/resume.pdf"
           target="_blank"
           rel="noreferrer"
           className="text-[14px] text-[#44403c] underline underline-offset-4"
         >
-          Full resume ↗
+          {locale === "ko" ? "영문 이력서 ↗" : "Full resume ↗"}
         </a>
       </div>
       <div className="flex flex-col">
@@ -26,10 +30,10 @@ export default function ExperienceList() {
             className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 gap-y-1 border-t border-[#e7e5e4] py-[11px] last:border-b sm:grid-cols-[210px_minmax(0,1fr)_auto]"
           >
             <span className="flex items-center gap-2 text-[16px] font-semibold">
-              {organization}
+              {localize(organization, locale)}
             </span>
             <span className="col-span-2 row-start-2 text-[14px] text-[#44403c] sm:col-span-1 sm:row-start-auto">
-              {role}
+              {localize(role, locale)}
               {link && (
                 <>
                   {" · "}
@@ -39,7 +43,7 @@ export default function ExperienceList() {
                     rel="noreferrer"
                     className="text-[#44403c] underline underline-offset-[3px]"
                   >
-                    {link.label}&nbsp;↗
+                    {localize(link.label, locale)}&nbsp;↗
                   </a>
                 </>
               )}

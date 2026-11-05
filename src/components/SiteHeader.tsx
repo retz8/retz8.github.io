@@ -1,6 +1,12 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 import { cn } from "@/lib/utils";
+import {
+  localePath,
+  storeLocale,
+  switchLocalePath,
+  useLocale,
+} from "@/lib/locale";
 
 const textLink =
   "flex min-h-10 items-center px-2.5 text-[14px] text-[#57534e] hover:underline";
@@ -8,19 +14,27 @@ const iconLink =
   "flex h-10 w-10 items-center justify-center text-[#57534e] transition-colors duration-150";
 const divider = <span aria-hidden="true" className="mx-1.5 h-[18px] w-px bg-[#e7e5e4]" />;
 
-// The site's top line: home on the left; pages and profiles on the right.
+// The site's top line: home on the left; pages, profiles and the other
+// language on the right.
 export default function SiteHeader() {
+  const locale = useLocale();
+  const { pathname } = useLocation();
+  const other = locale === "ko" ? "en" : "ko";
+
   return (
     <div className="flex flex-wrap items-baseline justify-between gap-x-4">
       <Link
-        to="/"
+        to={localePath(locale, "/")}
         className="flex min-h-10 items-center text-[16px] font-medium text-[#1c1917] hover:underline"
       >
         retz8.github.io
       </Link>
-      <nav aria-label="Site" className="flex items-center gap-1">
+      <nav
+        aria-label={locale === "ko" ? "사이트" : "Site"}
+        className="flex items-center gap-1"
+      >
         <NavLink
-          to="/cook"
+          to={localePath(locale, "/cook")}
           className={({ isActive }) =>
             cn(textLink, isActive && "font-medium text-[#1c1917]")
           }
@@ -52,13 +66,25 @@ export default function SiteHeader() {
         </a>
         <a
           href="mailto:jiohin@umich.edu"
-          aria-label="Email"
+          aria-label={locale === "ko" ? "이메일" : "Email"}
           className={`${iconLink} hover:text-[#1c1917]`}
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
           </svg>
         </a>
+        {divider}
+        {/* The same page in the other language. Picking it is remembered,
+            so the home page stops following the browser's language. */}
+        <Link
+          to={switchLocalePath(pathname, other)}
+          lang={other}
+          hrefLang={other}
+          onClick={() => storeLocale(other)}
+          className={textLink}
+        >
+          {other === "ko" ? "한국어" : "English"}
+        </Link>
       </nav>
     </div>
   );
