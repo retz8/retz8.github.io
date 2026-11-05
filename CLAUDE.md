@@ -27,7 +27,7 @@ Single-page React 19 + Vite + TypeScript site with two pages. Tailwind v4 is wir
 
 ### Languages
 
-`src/lib/locale.ts` holds the two locales. Each route sets its locale through `LocaleContext`, and components read it with `useLocale()`; build internal links with `localePath(locale, path)`. Text that differs by language is a `Localized` (`{ en, ko }`) in the domain's `data/`; names that are the same in both stay plain strings (`LocalizedText`). The project diagrams keep their words in a `TEXT` table per language at the top of each thumb.
+`src/lib/locale.ts` holds the two locales. Each route sets its locale through `LocaleContext`, and components read it with `useLocale()`; build internal links with `localePath(locale, path)`. Text that differs by language is a `Localized` (`{ en, ko }`) in the domain's `data/`; names that are the same in both stay plain strings (`LocalizedText`). A project diagram whose words read differently in Korean keeps them in a `TEXT` table per language at the top of its thumb; the a2ui-project/a2ui, umichkisa.com and Pastiche diagrams stay in English on both pages.
 
 The Korean pages are written for Korean readers, not translated: their copy is drafted on the canvas's `FinalKo.dc.html` and `CookKo.dc.html` boards first, like any visual change.
 
