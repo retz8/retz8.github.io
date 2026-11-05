@@ -15,7 +15,7 @@ No test runner is configured.
 
 ## Design source
 
-The pages are drawn first on the Design canvas "Portfolio Redesign": https://claude.ai/artifact/XzPCyCbdWJPLCXwJsvRffK. Its `Final.dc.html` board is the portfolio page and `Cook.dc.html` the Cook page. A visual change starts on the canvas, and the code follows it.
+The pages are drawn first on the Design canvas "Portfolio Redesign": https://claude.ai/artifact/XzPCyCbdWJPLCXwJsvRffK. Its `Final.dc.html` board is the portfolio page and `Cook.dc.html` the Cook page; `FinalKo.dc.html` and `CookKo.dc.html` are their Korean versions. A visual change starts on the canvas, and the code follows it.
 
 ## Architecture
 
@@ -23,11 +23,19 @@ Single-page React 19 + Vite + TypeScript site with two pages. Tailwind v4 is wir
 
 ### Routing
 
-`src/App.tsx` wraps the app in `ThemeProvider` and a `HashRouter` with two routes: `/` → `PortfolioPage`, `/cook` → `CookPage`. Any other path redirects to `/`. HashRouter is used for static hosting on GitHub Pages, so internal links must be hash-style (use `Link` / `NavLink`).
+`src/App.tsx` wraps the app in `ThemeProvider` and a `HashRouter` with each page in English at the root and in Korean under `/ko`: `/` and `/ko` → `PortfolioPage`, `/cook` and `/ko/cook` → `CookPage`. Any other path redirects to `/`. HashRouter is used for static hosting on GitHub Pages, so internal links must be hash-style (use `Link` / `NavLink`).
+
+### Languages
+
+`src/lib/locale.ts` holds the two locales. Each route sets its locale through `LocaleContext`, and components read it with `useLocale()`; build internal links with `localePath(locale, path)`. Text that differs by language is a `Localized` (`{ en, ko }`) in the domain's `data/`; names that are the same in both stay plain strings (`LocalizedText`). The project diagrams keep their words in a `TEXT` table per language at the top of each thumb.
+
+The Korean pages are written for Korean readers, not translated: their copy is drafted on the canvas's `FinalKo.dc.html` and `CookKo.dc.html` boards first, like any visual change.
+
+Opening the home page (`#/`) sends a reader to `#/ko` when their browser's first language is Korean (`redirectToPreferredLocale`, run in `main.tsx` before the first render). A language picked with the header's language link is stored and wins over the browser's. Links to any other page open as they are.
 
 ### Page shell
 
-Every page renders inside `src/components/SiteLayout.tsx`: the warm off-white ground (`#fafaf9`, set on `body` while the page is mounted), one 800px column, `SiteHeader` plus the page's `intro`, the page's sections, and the footer. `SiteHeader` holds the home link, the Cook link (marked current on its page) and the GitHub, LinkedIn and email icons. A new page takes the same shell.
+Every page renders inside `src/components/SiteLayout.tsx`: the warm off-white ground (`#fafaf9`, set on `body` while the page is mounted), one 800px column, `SiteHeader` plus the page's `intro`, the page's sections, and the footer. `SiteHeader` holds the home link, the Cook link (marked current on its page) the GitHub, LinkedIn and email icons, and the link to the same page in the other language. A new page takes the same shell.
 
 ### Domain structure
 

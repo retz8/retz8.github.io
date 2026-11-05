@@ -23,7 +23,7 @@
   /* Portfolio type. Geist has no Hangul, so Korean text falls to Noto Sans KR
      instead of whatever the OS picks. */
   --font-geist: "Geist", "Noto Sans KR", sans-serif;
-  --font-geist-mono: "Geist Mono", monospace;
+  --font-geist-mono: "Geist Mono", "Noto Sans KR", monospace;
 
   /* Default Colors */
   --radius-sm: calc(var(--radius) - 4px);

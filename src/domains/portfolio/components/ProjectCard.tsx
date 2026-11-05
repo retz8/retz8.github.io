@@ -1,9 +1,11 @@
 import type { ProjectCard as ProjectCardData } from "@/domains/portfolio/types/project";
 import { thumbs } from "@/domains/portfolio/components/thumbs";
+import { useLocale } from "@/lib/locale";
 
 // A diagram over the project's title and one line. The title's link
 // stretches over the whole card, so the diagram is clickable too.
 export default function ProjectCard({ id, title, url, description }: ProjectCardData) {
+  const locale = useLocale();
   const Thumb = thumbs[id];
   return (
     <article className="group relative flex flex-col gap-3">
@@ -17,7 +19,7 @@ export default function ProjectCard({ id, title, url, description }: ProjectCard
         >
           {title}&nbsp;↗
         </a>
-        <div className="text-[16px] leading-6 text-[#57534e]">{description}</div>
+        <div className="text-[16px] leading-6 text-[#57534e]">{description[locale]}</div>
       </div>
     </article>
   );

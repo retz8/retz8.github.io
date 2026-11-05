@@ -1,8 +1,20 @@
 import ThumbFrame from "./ThumbFrame";
+import { useLocale } from "@/lib/locale";
+
+// The diagram's words, per language.
+const TEXT = {
+  en: {
+    request: "which of these are ready to merge?",
+  },
+  ko: {
+    request: "이 중에 지금 머지해도 되는 거 있어?",
+  },
+};
 
 // A2UI GitHub: a stack of generated GitHub pages, the front one answering a prompt.
 // Drawn on the portfolio redesign canvas; markup kept as drawn.
 export default function A2UIGitHubThumb() {
+  const t = TEXT[useLocale()];
   return (
     <ThumbFrame style={{ background: "#eaeef2", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <div className="max-sm:[zoom:.82]" style={{ position: "relative", width: "400px", height: "116px", flex: "none" }}>
@@ -12,8 +24,8 @@ export default function A2UIGitHubThumb() {
           <div style={{ height: "28px", flex: "none", display: "flex", alignItems: "center", gap: "8px", padding: "0 8px", borderBottom: "1px solid #d0d7de", background: "#f6f8fa" }}>
             <span aria-hidden="true" style={{ fontSize: "12px", color: "#59636e" }}>←</span>
             <span style={{ flex: "1", minWidth: "0", height: "18px", borderRadius: "6px", background: "#ffffff", border: "1px solid #d0d7de", display: "flex", alignItems: "center", gap: "6px", padding: "0 6px", boxSizing: "border-box" }}>
-              <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: "9px", color: "#59636e", border: "1px solid #d0d7de", borderRadius: "3px", padding: "0 3px", lineHeight: "11px" }}>⌘K</span>
-              <span style={{ fontSize: "10px", color: "#1f2328", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>which of these are ready to merge?</span>
+              <span style={{ fontFamily: "'Geist Mono', 'Noto Sans KR', monospace", fontSize: "9px", color: "#59636e", border: "1px solid #d0d7de", borderRadius: "3px", padding: "0 3px", lineHeight: "11px" }}>⌘K</span>
+              <span style={{ fontSize: "10px", color: "#1f2328", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{t.request}</span>
             </span>
           </div>
           <div style={{ flex: "1", padding: "8px 12px", display: "flex", flexDirection: "column", gap: "7px" }}>

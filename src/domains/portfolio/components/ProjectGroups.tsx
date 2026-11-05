@@ -1,7 +1,10 @@
 import { projectGroups } from "@/domains/portfolio/data/projectData";
 import ProjectCard from "@/domains/portfolio/components/ProjectCard";
+import { localize, useLocale } from "@/lib/locale";
 
 export default function ProjectGroups() {
+  const locale = useLocale();
+
   return (
     <div className="mt-8 flex flex-col gap-24">
       {projectGroups.map((group) => (
@@ -11,17 +14,19 @@ export default function ProjectGroups() {
         >
           <div className="flex flex-wrap items-baseline gap-x-3.5 gap-y-1.5">
             <h2 className="m-0 text-[20px] font-semibold tracking-[-0.01em]">
-              {group.title}
+              {localize(group.title, locale)}
             </h2>
             {group.description && (
               <span className="order-3 basis-full text-[16px] leading-6 text-[#57534e]">
-                {group.description}
+                {group.description[locale]}
               </span>
             )}
             {group.period && (
               <span className="ml-auto font-geist-mono text-[12px] text-[#78716c]">
                 {group.period.start} –{" "}
-                <b className="font-normal text-[#1c1917]">{group.period.end}</b>
+                <b className="font-normal text-[#1c1917]">
+                  {group.period.end ?? (locale === "ko" ? "현재" : "now")}
+                </b>
               </span>
             )}
           </div>
@@ -38,7 +43,7 @@ export default function ProjectGroups() {
                 rel="noreferrer"
                 className="flex min-h-10 items-center self-start text-[14px] text-[#44403c] underline underline-offset-4"
               >
-                {group.more.label}&nbsp;→
+                {group.more.label[locale]}&nbsp;→
               </a>
             )}
             {group.rows && (
@@ -63,7 +68,7 @@ export default function ProjectGroups() {
                       </span>
                     )}
                     <span className="text-[16px] leading-6 text-[#57534e]">
-                      {row.description}
+                      {row.description[locale]}
                     </span>
                   </div>
                 ))}

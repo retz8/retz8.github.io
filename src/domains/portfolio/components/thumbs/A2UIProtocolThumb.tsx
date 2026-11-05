@@ -1,8 +1,22 @@
 import ThumbFrame from "./ThumbFrame";
+import { useLocale } from "@/lib/locale";
+
+// The diagram's words, per language.
+const TEXT = {
+  en: {
+    byBefore: "an open protocol from ",
+    byAfter: "",
+  },
+  ko: {
+    byBefore: "",
+    byAfter: "이 만든 오픈 프로토콜",
+  },
+};
 
 // a2ui-project/a2ui: the protocol itself, by its logo.
 // Drawn on the portfolio redesign canvas; markup kept as drawn.
 export default function A2UIProtocolThumb() {
+  const t = TEXT[useLocale()];
   return (
     <ThumbFrame tone="dark" style={{ background: "#191d1c", display: "flex", alignItems: "center", justifyContent: "center", gap: "14px" }}>
       <svg role="img" aria-label="A2UI logo" width="60" height="60" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,8 +31,8 @@ export default function A2UIProtocolThumb() {
       <span className="max-sm:hidden!" aria-hidden="true" style={{ width: "1px", height: "44px", background: "#3a403e", margin: "0 6px" }} />
       <div className="max-sm:hidden!" style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
         <span style={{ fontSize: "13px", color: "#e7e9e8" }}>Agent-to-User Interface</span>
-        <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: "11px", color: "#8b928f" }}>
-          {"an open protocol from "}
+        <span style={{ fontFamily: "'Geist Mono', 'Noto Sans KR', monospace", fontSize: "11px", color: "#8b928f" }}>
+          {t.byBefore}
           <span style={{ fontWeight: "600" }}>
             <span style={{ color: "#4285f4" }}>G</span>
             <span style={{ color: "#ea4335" }}>o</span>
@@ -27,6 +41,7 @@ export default function A2UIProtocolThumb() {
             <span style={{ color: "#34a853" }}>l</span>
             <span style={{ color: "#ea4335" }}>e</span>
           </span>
+          {t.byAfter}
         </span>
       </div>
     </ThumbFrame>
