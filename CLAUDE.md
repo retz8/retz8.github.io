@@ -35,7 +35,7 @@ Opening the home page (`#/`) sends a reader to `#/ko` when their browser's first
 
 ### Page shell
 
-Every page renders inside `src/components/SiteLayout.tsx`: the warm off-white ground (`#fafaf9`, set on `body` while the page is mounted), one 800px column, `SiteHeader` plus the page's `intro`, the page's sections, and the footer. `SiteHeader` holds the home link, the Cook link (marked current on its page) the GitHub, LinkedIn and email icons, and the link to the same page in the other language. A new page takes the same shell.
+Every page renders inside `src/components/SiteLayout.tsx`: the warm off-white ground (`#fafaf9`, set on `body` while the page is mounted), one 800px column, `SiteHeader` plus the page's `intro`, the page's sections, and the footer. `SiteHeader` holds the home link, the Cook link (marked current on its page), the GitHub, LinkedIn and email icons, and the link to the same page in the other language. A new page takes the same shell.
 
 ### Domain structure
 
