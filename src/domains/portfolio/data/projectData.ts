@@ -43,6 +43,7 @@ const projectGroups: ProjectGroup[] = [
         id: "a2ui-protocol",
         title: "a2ui-project/a2ui",
         url: "https://github.com/a2ui-project/a2ui/pulls?q=is%3Apr+author%3Aretz8",
+        author: { name: "a2ui-project", url: "https://github.com/a2ui-project" },
         description: {
           en: "OSS contributing to the protocol itself, from its spec to its core SDKs.",
           ko: "스펙부터 코어 SDK까지, 오픈소스 기여",
@@ -58,6 +59,10 @@ const projectGroups: ProjectGroup[] = [
       ko: "개발팀이 없던 한인 학생회에 팀을 만들었습니다. 지금은 10명 넘게 함께 만듭니다.",
     },
     period: { start: "2023.11" },
+    author: {
+      name: "KISA Webpage Development Team",
+      url: "https://github.com/KISA-webpage-development-team",
+    },
     cards: [
       {
         id: "kisa-design-system",

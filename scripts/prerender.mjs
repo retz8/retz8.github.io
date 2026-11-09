@@ -6,10 +6,11 @@
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
+import { jsonLd, llmsTxt } from "./structured-data.mjs";
+
 const dist = path.resolve("dist");
-const { render, pages, SITE_URL } = await import(
-  path.join(dist, "server/entry-server.js")
-);
+const data = await import(path.join(dist, "server/entry-server.js"));
+const { render, pages, SITE_URL } = data;
 const template = await readFile(path.join(dist, "index.html"), "utf8");
 
 const escape = (text) =>
@@ -59,7 +60,8 @@ function head(page) {
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${escape(title)}" />`,
     `<meta name="twitter:description" content="${escape(description)}" />`,
-    `<meta name="twitter:image" content="${image}" />`
+    `<meta name="twitter:image" content="${image}" />`,
+    jsonLd(page, data)
   );
   return tags.join("\n    ");
 }
@@ -114,6 +116,9 @@ const sitemap = [
 ].join("\n");
 await writeFile(path.join(dist, "sitemap.xml"), sitemap);
 console.log("sitemap.xml");
+
+await writeFile(path.join(dist, "llms.txt"), llmsTxt(data));
+console.log("llms.txt");
 
 // The pages ship no script: drop the client bundle and the renderer.
 await rm(path.join(dist, "server"), { recursive: true, force: true });

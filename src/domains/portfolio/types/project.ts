@@ -7,6 +7,15 @@ export type ProjectCard = {
   title: string;
   url: string;
   description: Localized;
+  // The organization whose work this is, when it is not mine alone; I am
+  // then a contributor to it. Overrides the group's.
+  author?: Author;
+};
+
+// An organization named as the author of a project in the structured data.
+export type Author = {
+  name: string;
+  url: string;
 };
 
 // A project shown as a single row, without a thumb.
@@ -27,6 +36,9 @@ export type ProjectGroup = {
     // Left out while the work is ongoing; shown as "now".
     end?: string;
   };
+  // The organization whose work the group's projects are, when it is not
+  // mine alone (a team I am part of).
+  author?: Author;
   cards: ProjectCard[];
   more?: {
     label: Localized;

@@ -4,6 +4,13 @@ import type { Locale } from "@/lib/locale";
 // tags are written against it.
 export const SITE_URL = "https://retz8.github.io";
 
+// The profiles the header links to and the structured data points at.
+export const PROFILES = {
+  github: "https://github.com/retz8",
+  linkedin: "https://www.linkedin.com/in/jioh-in",
+  email: "jiohin@umich.edu",
+};
+
 // A page the build writes to disk: its path, its language, and what the
 // document head says about it. The head copy is written per language, like
 // the page copy, not translated.

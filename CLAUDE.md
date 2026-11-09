@@ -27,7 +27,9 @@ React 19 + Vite + TypeScript site rendered to static HTML at build time: the bro
 
 ### Head
 
-`src/lib/pages.ts` holds each page's path, locale, title, description and the sibling page in the other language. The prerender writes them as the `<title>`, description, canonical, `hreflang` links, Open Graph and Twitter tags; a page without a sibling (the 404) gets `noindex` instead. The Open Graph image is `public/og/<locale>.png`, exported from the canvas boards. `public/robots.txt` points at the generated `sitemap.xml`.
+`src/lib/pages.ts` holds each page's path, locale, title, description and the sibling page in the other language. The prerender writes them as the `<title>`, description, canonical, `hreflang` links, Open Graph and Twitter tags; a page without a sibling (the 404) gets `noindex` instead. The Open Graph image is `public/og/<locale>.png`, exported from the canvas boards.
+
+`scripts/structured-data.mjs` writes each page's JSON-LD (`WebSite` and `WebPage`; the home pages are a `ProfilePage` whose `Person` is described by the intro's text and whose `ItemList` is the projects) and `llms.txt`, both from the same data as the pages: `src/lib/pages.ts`, `experienceData.ts` and `projectData.ts`. A project with an `author` organization (upstream, a team) lists me as `contributor`; the rest as `author`. `public/robots.txt` allows every crawler, the AI fetchers by name, and points at the generated `sitemap.xml`.
 
 ### Languages
 

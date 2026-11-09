@@ -2,6 +2,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 
 import { cn } from "@/lib/utils";
 import { localePath, switchLocalePath, useLocale } from "@/lib/locale";
+import { PROFILES } from "@/lib/pages";
 
 const textLink =
   "flex min-h-10 items-center px-2.5 text-[14px] text-[#57534e] hover:underline";
@@ -38,7 +39,7 @@ export default function SiteHeader() {
         </NavLink>
         {divider}
         <a
-          href="https://github.com/retz8"
+          href={PROFILES.github}
           target="_blank"
           rel="noreferrer"
           aria-label="GitHub"
@@ -49,7 +50,7 @@ export default function SiteHeader() {
           </svg>
         </a>
         <a
-          href="https://www.linkedin.com/in/jioh-in"
+          href={PROFILES.linkedin}
           target="_blank"
           rel="noreferrer"
           aria-label="LinkedIn"
@@ -60,7 +61,7 @@ export default function SiteHeader() {
           </svg>
         </a>
         <a
-          href="mailto:jiohin@umich.edu"
+          href={`mailto:${PROFILES.email}`}
           aria-label={locale === "ko" ? "이메일" : "Email"}
           className={`${iconLink} hover:text-[#1c1917]`}
         >
