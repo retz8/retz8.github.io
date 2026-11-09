@@ -1,12 +1,7 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 import { cn } from "@/lib/utils";
-import {
-  localePath,
-  storeLocale,
-  switchLocalePath,
-  useLocale,
-} from "@/lib/locale";
+import { localePath, switchLocalePath, useLocale } from "@/lib/locale";
 
 const textLink =
   "flex min-h-10 items-center px-2.5 text-[14px] text-[#57534e] hover:underline";
@@ -74,13 +69,14 @@ export default function SiteHeader() {
           </svg>
         </a>
         {divider}
-        {/* The same page in the other language. Picking it is remembered,
-            so the home page stops following the browser's language. */}
+        {/* The same page in the other language. index.html's inline script
+            remembers the pick (data-locale), so the home page stops following
+            the browser's language. */}
         <Link
           to={switchLocalePath(pathname, other)}
           lang={other}
           hrefLang={other}
-          onClick={() => storeLocale(other)}
+          data-locale={other}
           className={textLink}
         >
           {other === "ko" ? "한국어" : "English"}

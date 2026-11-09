@@ -2,6 +2,41 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // The built site runs no other script. This one forwards the old
+      // hash URLs, opens the home page in the reader's language, and
+      // remembers the language picked in the header.
+      (function () {
+        var loc = window.location;
+        // Old links: /#/ko/cook → /ko/cook.
+        if (loc.hash.indexOf("#/") === 0) {
+          loc.replace(loc.hash.slice(1) + loc.search);
+          return;
+        }
+        // The home page opens in Korean for a Korean browser, unless a
+        // language was picked before. A link to any other page opens as it is.
+        if (loc.pathname === "/") {
+          var stored = null;
+          try {
+            stored = localStorage.getItem("locale");
+          } catch (e) {}
+          var first = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+          var korean = stored ? stored === "ko" : first.toLowerCase().indexOf("ko") === 0;
+          if (korean) {
+            loc.replace("/ko");
+            return;
+          }
+        }
+        // The header's language link (data-locale) remembers the pick.
+        document.addEventListener("click", function (event) {
+          var link = event.target && event.target.closest && event.target.closest("a[data-locale]");
+          if (!link) return;
+          try {
+            localStorage.setItem("locale", link.getAttribute("data-locale"));
+          } catch (e) {}
+        });
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/alabat.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

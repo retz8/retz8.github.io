@@ -1,11 +1,8 @@
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import SiteHeader from "@/components/SiteHeader";
 import { cn } from "@/lib/utils";
 import { useLocale } from "@/lib/locale";
-
-// The page's warm off-white ground, edge to edge.
-const GROUND = "#fafaf9";
 
 interface SiteLayoutProps {
   // The page's opening lines, under the site header.
@@ -13,24 +10,12 @@ interface SiteLayoutProps {
   children: ReactNode;
 }
 
-// The shell every redesigned page shares: one 800px column with the site
-// header and the page's intro on top, its sections, and the footer.
+// The shell every page shares: one 800px column with the site header and
+// the page's intro on top, its sections, and the footer. The warm off-white
+// ground is set on body in index.css and the document's language on <html>
+// by the build, since the built site runs no script.
 export default function SiteLayout({ intro, children }: SiteLayoutProps) {
   const locale = useLocale();
-
-  useEffect(() => {
-    const previous = document.body.style.backgroundColor;
-    document.body.style.backgroundColor = GROUND;
-    return () => {
-      document.body.style.backgroundColor = previous;
-    };
-  }, []);
-
-  // The document's language follows the page, for screen readers and
-  // for the browser's Hangul line breaking.
-  useEffect(() => {
-    document.documentElement.lang = locale;
-  }, [locale]);
 
   return (
     <div
