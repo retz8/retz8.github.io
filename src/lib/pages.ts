@@ -21,7 +21,7 @@ export const pages: Page[] = [
   {
     path: "/",
     locale: "en",
-    title: "Jioh In (인지오) · Software engineer · University of Michigan",
+    title: "Jioh In",
     description:
       "Jioh In (retz8) is a software engineer studying computer science at the University of Michigan, previously a software engineer intern at Tesla, building what's behind the interface: generative UI, design systems and developer tooling.",
     alternate: "/ko",
@@ -29,7 +29,7 @@ export const pages: Page[] = [
   {
     path: "/ko",
     locale: "ko",
-    title: "인지오 (Jioh In) · 소프트웨어 엔지니어 · University of Michigan",
+    title: "인지오",
     description:
       "University of Michigan에서 컴퓨터 과학을 공부하는 소프트웨어 엔지니어 인지오(Jioh In, retz8)입니다. Tesla에서 인턴으로 일했고, UI가 만들어지는 방식을 만듭니다: Generative UI, Design System, Developer Tooling.",
     alternate: "/",
