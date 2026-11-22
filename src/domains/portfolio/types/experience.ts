@@ -13,3 +13,10 @@ export type Experience = {
   };
   period: string;
 };
+
+// Earlier work, named in the line under the rows. Without a url it is
+// plain text.
+export type EarlierWork = {
+  name: string;
+  url?: string;
+};

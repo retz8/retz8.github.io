@@ -104,7 +104,7 @@ export function jsonLd(page, { SITE_URL, PROFILES, projectGroups, introText }) {
 
 // llms.txt: the site in one English Markdown page, for fetchers that read
 // one file instead of rendering the pages.
-export function llmsTxt({ SITE_URL, pages, experiences, projectGroups, introText }) {
+export function llmsTxt({ SITE_URL, pages, experiences, earlier, projectGroups, introText }) {
   const url = (path) => SITE_URL + (path === "/" ? "/" : path);
   const english = pages.filter((p) => p.locale === "en" && p.alternate !== undefined);
   const korean = pages.filter((p) => p.locale === "ko");
@@ -128,6 +128,7 @@ export function llmsTxt({ SITE_URL, pages, experiences, projectGroups, introText
       const link = e.link ? `: [${localize(e.link.label, "en")}](${e.link.url})` : "";
       return `- ${org} · ${role} (${e.period})${link}`;
     }),
+    `- Earlier: ${earlier.map((w) => (w.url ? `[${w.name}](${w.url})` : w.name)).join(", ")}`,
     "",
     "## Projects",
   ];

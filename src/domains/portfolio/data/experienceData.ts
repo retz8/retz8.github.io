@@ -1,4 +1,4 @@
-import type { Experience } from "@/domains/portfolio/types/experience";
+import type { EarlierWork, Experience } from "@/domains/portfolio/types/experience";
 
 const experiences: Experience[] = [
   {
@@ -33,26 +33,16 @@ const experiences: Experience[] = [
     },
     period: "2025.01 – 04",
   },
-  {
-    id: "michigan-daily",
-    organization: "The Michigan Daily",
-    role: { en: "Web Developer", ko: "웹 개발자" },
-    link: {
-      label: { en: "photo gallery platform", ko: "사진 갤러리 플랫폼" },
-      url: "https://specials.michigandaily.com/2024/photographers-favorites/",
-    },
-    period: "2024.09 – 12",
-  },
-  {
-    id: "bancof",
-    organization: "Bancof",
-    role: { en: "Blockchain Developer Intern", ko: "블록체인 개발자 인턴" },
-    link: {
-      label: "BaaS MVP",
-      url: "https://dorahacks.io/build/6106/",
-    },
-    period: "2022.08 – 09",
-  },
 ];
 
-export { experiences };
+// Earlier work, named in one line under the rows.
+const earlier: EarlierWork[] = [
+  {
+    name: "The Michigan Daily",
+    url: "https://specials.michigandaily.com/2024/photographers-favorites/",
+  },
+  { name: "Ecological" },
+  { name: "Bancof", url: "https://dorahacks.io/build/6106/" },
+];
+
+export { experiences, earlier };
