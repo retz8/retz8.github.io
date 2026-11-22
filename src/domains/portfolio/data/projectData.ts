@@ -102,17 +102,10 @@ const projectGroups: ProjectGroup[] = [
         },
       },
     ],
-    more: {
-      label: {
-        en: "More from KISA: Admin suite, design system migration, mobile Pocha",
-        ko: "KISA의 다른 작업: 어드민, Design System 마이그레이션, 모바일 Pocha",
-      },
-      url: "https://github.com/KISA-webpage-development-team",
-    },
   },
   {
     id: "side",
-    title: { en: "Side projects", ko: "사이드 프로젝트" },
+    title: "Side projects",
     cards: [
       {
         id: "pastiche",
@@ -163,13 +156,6 @@ const projectGroups: ProjectGroup[] = [
         description: {
           en: "Intramural activities app",
           ko: "교내 행사 일정과 결과를 기록하고 보여주는 앱",
-        },
-      },
-      {
-        title: "Ecological",
-        description: {
-          en: "React Native rewards app with a side-project team",
-          ko: "다회용 컵을 쓰면 리워드가 쌓이는, 탄소 줄이기 앱",
         },
       },
     ],

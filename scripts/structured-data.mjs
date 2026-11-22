@@ -141,7 +141,6 @@ export function llmsTxt({ SITE_URL, pages, experiences, earlier, projectGroups, 
       const name = p.url ? `[${p.title}](${p.url})` : p.title;
       lines.push(`- ${name}: ${p.description.en}`);
     }
-    if (group.more) lines.push(`- [${group.more.label.en}](${group.more.url})`);
   }
 
   lines.push("", "## Resume", "", `- [Full resume (PDF)](${SITE_URL}/resume.pdf)`, "");

@@ -30,22 +30,16 @@ export default function ProjectGroups() {
               </span>
             )}
           </div>
-          <div className="flex min-w-0 flex-col gap-5">
+          <div
+            // With rows, the gap plus a row's 9px top padding matches the
+            // 18px between rows.
+            className={group.rows ? "flex min-w-0 flex-col gap-[9px]" : "flex min-w-0 flex-col gap-5"}
+          >
             <div className="grid grid-cols-[minmax(0,1fr)] gap-8">
               {group.cards.map((card) => (
                 <ProjectCard key={card.id} {...card} />
               ))}
             </div>
-            {group.more && (
-              <a
-                href={group.more.url}
-                target="_blank"
-                rel="noreferrer"
-                className="flex min-h-10 items-center self-start text-[14px] text-[#44403c] underline underline-offset-4"
-              >
-                {group.more.label[locale]}&nbsp;→
-              </a>
-            )}
             {group.rows && (
               <div className="flex flex-col">
                 {group.rows.map((row) => (
