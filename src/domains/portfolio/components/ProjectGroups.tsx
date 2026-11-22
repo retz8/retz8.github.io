@@ -6,7 +6,7 @@ export default function ProjectGroups() {
   const locale = useLocale();
 
   return (
-    <div className="mt-8 flex flex-col gap-24">
+    <div className="flex flex-col gap-24">
       {projectGroups.map((group) => (
         <div
           key={group.id}
