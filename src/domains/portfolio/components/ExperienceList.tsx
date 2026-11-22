@@ -17,7 +17,7 @@ export default function ExperienceList() {
           href="/resume.pdf"
           target="_blank"
           rel="noreferrer"
-          className="text-[14px] text-[#44403c] underline underline-offset-4"
+          className="text-[14px] text-[#44403c] underline-offset-4 hover:underline"
         >
           {locale === "ko" ? "영문 이력서 ↗" : "Full resume ↗"}
         </a>
@@ -42,7 +42,7 @@ export default function ExperienceList() {
                     href={link.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[#44403c] underline underline-offset-[3px]"
+                    className="text-[#44403c] underline-offset-[3px] hover:underline"
                   >
                     {localize(link.label, locale)}&nbsp;↗
                   </a>
@@ -65,7 +65,7 @@ export default function ExperienceList() {
                 href={url}
                 target="_blank"
                 rel="noreferrer"
-                className="text-inherit underline underline-offset-[3px]"
+                className="text-inherit underline-offset-[3px] hover:underline"
               >
                 {name}&nbsp;↗
               </a>

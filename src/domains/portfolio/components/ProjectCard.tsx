@@ -15,7 +15,7 @@ export default function ProjectCard({ id, title, url, description }: ProjectCard
           href={url}
           target="_blank"
           rel="noreferrer"
-          className="w-fit text-[16px] font-medium text-[#1c1917] underline underline-offset-4 after:absolute after:inset-0 after:z-10"
+          className="w-fit text-[16px] font-medium text-[#1c1917] underline-offset-4 group-hover:underline after:absolute after:inset-0 after:z-10"
         >
           {title}&nbsp;↗
         </a>

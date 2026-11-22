@@ -52,7 +52,7 @@ export default function ProjectGroups() {
                         href={row.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="w-fit text-[16px] font-medium text-[#1c1917] underline underline-offset-4"
+                        className="w-fit text-[16px] font-medium text-[#1c1917] underline-offset-4 hover:underline"
                       >
                         {row.title}&nbsp;↗
                       </a>
