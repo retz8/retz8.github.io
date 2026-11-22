@@ -40,9 +40,5 @@ export type ProjectGroup = {
   // mine alone (a team I am part of).
   author?: Author;
   cards: ProjectCard[];
-  more?: {
-    label: Localized;
-    url: string;
-  };
   rows?: ProjectRow[];
 };

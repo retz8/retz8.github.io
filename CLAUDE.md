@@ -55,5 +55,6 @@ Page content is organized by domain under `src/domains/{portfolio,cook}/`. Each 
 
 - Styling: Tailwind utilities with exact sizes (`text-[16px]`, not `text-base`, whose built-in line height differs from the design) and the design's hex colors.
 - External links open in a new tab (`target="_blank" rel="noreferrer"`).
+- Links in the content end in ↗ (all of them lead off the site) and are underlined only on hover, in the color of the text around them. A project card underlines its title when any part of it is hovered.
 - Static files go in `public/`: `public/resume.pdf` is served at `/resume.pdf` for the Experience section's Full resume link.
 - The pre-redesign site is kept on the `legacy` branch.

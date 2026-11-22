@@ -10,7 +10,7 @@ import Intro from "@/domains/portfolio/components/Intro";
 import { LocaleContext, type Locale } from "@/lib/locale";
 
 export { pages, PROFILES, SITE_URL } from "@/lib/pages";
-export { experiences } from "@/domains/portfolio/data/experienceData";
+export { experiences, earlier } from "@/domains/portfolio/data/experienceData";
 export { projectGroups } from "@/domains/portfolio/data/projectData";
 
 export function render(path: string): string {
